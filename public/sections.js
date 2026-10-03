@@ -282,7 +282,9 @@
       tv.innerHTML = `
         <span class="lg-tv__body">
           <span class="lg-tv__screen">
-            <img src="https://i.ytimg.com/vi/${esc(c.id)}/${c.tv === "big" ? "hqdefault" : "mqdefault"}.jpg" alt="" loading="lazy" width="320" height="180" />
+            ${c.video
+              ? `<video muted playsinline loop preload="none" poster="${esc(c.poster || "")}" width="384" height="288" aria-hidden="true"><source src="${esc(c.video)}" type="video/mp4" /></video>`
+              : `<img src="https://i.ytimg.com/vi/${esc(c.id)}/${c.tv === "big" ? "hqdefault" : "mqdefault"}.jpg" alt="" loading="lazy" width="320" height="180" />`}
             <span class="lg-tv__scan"></span>
             <span class="lg-tv__play"><i>▶</i> Ver clip</span>
           </span>
@@ -305,7 +307,10 @@
 
     // Loop de la capa fx a ~15 fps (pixel art a pasos), solo con el cuarto en pantalla
     const tick = (t) => { if (!visible) return; if (t - last > 66) { last = t; draw(t); } requestAnimationFrame(tick); };
-    new IntersectionObserver((en) => { const was = visible; visible = en[0].isIntersecting; if (visible && !was && !reduced) requestAnimationFrame(tick); }, { rootMargin: "80px" }).observe(scene);
+    const videos = $$("video", tvs);
+    const playVideos = (on) => { if (reduced) return; videos.forEach((v) => { if (on) { if (v.preload === "none") v.preload = "auto"; const p = v.play(); if (p && p.catch) p.catch(() => {}); } else v.pause(); }); };
+    new IntersectionObserver((en) => { const was = visible; visible = en[0].isIntersecting; if (visible && !was && !reduced) requestAnimationFrame(tick); playVideos(visible); }, { rootMargin: "80px" }).observe(scene);
+    document.addEventListener("visibilitychange", () => playVideos(visible && document.visibilityState === "visible"));
 
     // Móvil: el cuarto se desliza; centramos la tele grande y damos un pelín de parallax al paneo
     const vp = $("#roomViewport");

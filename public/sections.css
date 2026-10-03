@@ -77,8 +77,8 @@ html.has-motion .rv-title.is-in { animation: wipe .7s steps(12) forwards; }
   position: relative; flex: 1; aspect-ratio: 4 / 3; overflow: hidden;
   border: 3px solid #000; border-radius: 8% / 10%; background: #000;
 }
-.lg-tv__screen img {
-  width: 100%; height: 100%; object-fit: cover; display: block; --zoom: 1; transform: scale(var(--zoom));
+.lg-tv__screen img, .lg-tv__screen video {
+  width: 100%; height: 100%; object-fit: cover; display: block; --zoom: 1; transform: scale(var(--zoom)); background: #000;
   filter: saturate(1.25) contrast(1.08) brightness(.92); transition: transform .3s, filter .2s;
 }
 .lg-tv--left .lg-tv__screen img, .lg-tv--right .lg-tv__screen img { --zoom: 2.1; } /* shorts verticales: se recortan las barras */
@@ -104,7 +104,8 @@ html.has-motion .rv-title.is-in { animation: wipe .7s steps(12) forwards; }
 }
 .lg-tv--big .lg-tv__plate { font-size: 8px; padding: 4px 8px; }
 .lg-tv:hover, .lg-tv.is-hot, .lg-tv:focus-visible { transform: scale(1.03); z-index: 6; }
-.lg-tv:hover .lg-tv__screen img, .lg-tv.is-hot .lg-tv__screen img, .lg-tv:focus-visible .lg-tv__screen img { transform: scale(calc(var(--zoom) * 1.06)); filter: saturate(1.3) contrast(1.1) brightness(1.05); }
+.lg-tv:hover .lg-tv__screen img, .lg-tv.is-hot .lg-tv__screen img, .lg-tv:focus-visible .lg-tv__screen img,
+.lg-tv:hover .lg-tv__screen video, .lg-tv.is-hot .lg-tv__screen video, .lg-tv:focus-visible .lg-tv__screen video { transform: scale(calc(var(--zoom) * 1.06)); filter: saturate(1.3) contrast(1.1) brightness(1.05); }
 .lg-tv:hover .lg-tv__play, .lg-tv.is-hot .lg-tv__play, .lg-tv:focus-visible .lg-tv__play { opacity: 1; transform: translate(-50%, 0); }
 .lg-tv:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
 .lg-tv::after { /* resplandor de la tele sobre el mueble */
