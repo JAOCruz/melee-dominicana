@@ -8,13 +8,23 @@
   <meta property="og:title" content="Melee Dominicana" />
   <meta property="og:description" content="Nuestra escena. Nuestra pasión. Nuestro juego. Torneos, highlights y comunidad de Melee en RD." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://melee-rd.netlify.app/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="El lounge pixel de Melee Dominicana: teles CRT, sofá y la bandera dominicana." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Melee Dominicana" />
+  <meta name="twitter:description" content="Torneos, highlights y comunidad de Super Smash Bros. Melee en RD." />
+  <meta name="twitter:image" content="https://melee-rd.netlify.app/og.png" />
   <meta name="theme-color" content="#07080f" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="standings.css" />
+  <link rel="stylesheet" href="sections.css" />
 </head>
 <body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -53,29 +63,37 @@
 
   <main id="contenido">
 
-    <!-- LOUNGE -->
-    <section id="lounge" class="lounge" aria-labelledby="lounge-h">
-      <div class="wrap">
-        <h2 id="lounge-h" class="h2">El <span class="gold">lounge</span></h2>
-        <p class="sub">Pasa, siéntate y escoge una tele.</p>
+    <!-- LOUNGE: cuarto pixel por capas (sections.js dibuja las capas; las teles son botones) -->
+    <section id="lounge" class="lg" aria-labelledby="lounge-h">
+      <div class="wrap lg__head">
+        <p class="kicker kicker--sec rv">Clips de la semana</p>
+        <h2 id="lounge-h" class="h2 rv-title">El <span class="gold">lounge</span></h2>
+        <p class="sub rv">Pasa, siéntate y escoge una tele. Los sets se graban con Slippi y los mejores momentos van directo al canal.</p>
       </div>
-      <div class="room">
-        <div class="wall">
-          <div class="poster p1" aria-hidden="true"><span>RD</span></div>
-          <div class="poster p2" aria-hidden="true"><span>GG</span></div>
+      <div class="lg-room" id="room">
+        <div class="lg-room__viewport" id="roomViewport">
+          <div class="lg-room__scene" id="roomScene" aria-label="Lounge pixel de Melee Dominicana">
+            <canvas class="lg-room__bg" aria-hidden="true"></canvas>
+            <canvas class="lg-room__mid" aria-hidden="true"></canvas>
+            <div class="lg-room__tvs" id="tvs"></div>
+            <canvas class="lg-room__front" aria-hidden="true"></canvas>
+            <canvas class="lg-room__fx" aria-hidden="true"></canvas>
+          </div>
         </div>
-        <div class="tvs" id="tvs"></div>
-        <div class="floor" aria-hidden="true"></div>
+        <p class="lg-room__hint" aria-hidden="true">◂ desliza por el cuarto · toca una tele ▸</p>
       </div>
-      <div class="wrap center">
-        <a class="btn btn-red" href="https://www.youtube.com/channel/UC3pTL3ikdL8_8REeSHtinSQ" target="_blank" rel="noopener">Todo el canal en YouTube →</a>
+      <div class="wrap">
+        <ul class="lg-list" id="clipList" aria-label="Clips en las teles"></ul>
+        <p class="center"><a class="btn btn-red" href="https://www.youtube.com/channel/UC3pTL3ikdL8_8REeSHtinSQ" target="_blank" rel="noopener">Todo el canal en YouTube →</a></p>
       </div>
     </section>
 
     <!-- TORNEOS -->
-    <section id="torneos" class="wrap section" aria-labelledby="torneos-h">
-      <h2 id="torneos-h" class="h2">Tor<span class="gold">neos</span></h2>
-      <div class="tourney">
+    <section id="torneos" class="wrap section tq" aria-labelledby="torneos-h">
+      <div class="sep" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="kicker kicker--sec rv" style="margin-top:28px">Bracket, podio y resultados</p>
+      <h2 id="torneos-h" class="h2 rv-title">Tor<span class="gold">neos</span></h2>
+      <div class="tourney rv">
         <div class="tourney-main">
           <p class="tag">Próximo torneo</p>
           <h3>Por anunciar</h3>
@@ -92,30 +110,94 @@
           </ul>
         </div>
       </div>
-      <div class="results" data-results="torneos/md1.json"></div>
+      <div class="results rv" data-results="torneos/md1.json"></div>
     </section>
 
     <!-- ESCENA -->
-    <section id="escena" class="band" aria-labelledby="escena-h">
+    <section id="escena" class="band sc" aria-labelledby="escena-h">
+      <div class="sc-strip" aria-hidden="true">
+        <div class="sc-strip__track">
+          <span>Weeklies</span><span>Money matches</span><span>Sets rankeados</span><span>Todo queda grabado</span><span>De RD pa'l mundo</span><span>Vieja escuela vs nueva generación</span>
+          <span>Weeklies</span><span>Money matches</span><span>Sets rankeados</span><span>Todo queda grabado</span><span>De RD pa'l mundo</span><span>Vieja escuela vs nueva generación</span>
+        </div>
+      </div>
       <div class="wrap section">
-        <h2 id="escena-h" class="h2">La <span class="blue">escena</span></h2>
-        <div class="pillars">
-          <div class="pillar"><b>VS</b><h3>Weeklies y money matches</h3><p>Sesiones semanales, money matches y sets rankeados entre los mejores del país.</p></div>
-          <div class="pillar"><b>REC</b><h3>Todo queda grabado</h3><p>Cada set se graba con Slippi y los mejores momentos van directo al canal.</p></div>
-          <div class="pillar"><b>RD</b><h3>De RD pa'l mundo</h3><p>La vieja escuela y la nueva generación, construyendo la escena juntos.</p></div>
+        <p class="kicker kicker--sec rv">Quiénes somos</p>
+        <h2 id="escena-h" class="h2 rv-title">La <span class="blue">escena</span></h2>
+        <div class="sc-pillars rv">
+          <div class="sc-pillar"><b>VS</b><canvas aria-hidden="true"></canvas><h3>Weeklies y money matches</h3><p>Sesiones semanales, money matches y sets rankeados entre los mejores del país.</p></div>
+          <div class="sc-pillar"><b>REC</b><canvas aria-hidden="true"></canvas><h3>Todo queda grabado</h3><p>Cada set se graba con Slippi y los mejores momentos van directo al canal.</p></div>
+          <div class="sc-pillar"><b>RD</b><canvas aria-hidden="true"></canvas><h3>De RD pa'l mundo</h3><p>La vieja escuela y la nueva generación, construyendo la escena juntos.</p></div>
         </div>
 
-        <h3 class="h3">Jugadores</h3>
-        <div class="roster" id="roster"></div>
-        <p class="note">¿Juegas Melee en RD y no sales aquí? Escríbenos por YouTube y te agregamos.</p>
+        <h3 class="h3 rv">Jugadores</h3>
+        <div class="sc-roster" id="roster"></div>
+        <p class="note rv">¿Juegas Melee en RD y no sales aquí? Escríbenos por YouTube y te agregamos. Los mains y colores salen de los replays de Melee Dominicana #1.</p>
+      </div>
+      <div class="sc-strip sc-strip--blue" aria-hidden="true">
+        <div class="sc-strip__track">
+          <span>Santo Domingo</span><span>Puerto Rico</span><span>Slippi netplay</span><span>Melee Dominicana #1</span><span>22 jugadores</span><span>Doble eliminación</span>
+          <span>Santo Domingo</span><span>Puerto Rico</span><span>Slippi netplay</span><span>Melee Dominicana #1</span><span>22 jugadores</span><span>Doble eliminación</span>
+        </div>
       </div>
     </section>
 
-    <!-- HUB -->
-    <section id="hub" class="wrap section" aria-labelledby="hub-h">
-      <h2 id="hub-h" class="h2">Empieza a <span class="red">jugar</span></h2>
-      <p class="sub">Todo lo que la comunidad usa para jugar online, entrenar y montar setups.</p>
-      <div class="hub" id="hubgrid"></div>
+    <!-- HUB: guía paso a paso -->
+    <section id="hub" class="wrap section hb" aria-labelledby="hub-h">
+      <div class="sep" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="kicker kicker--sec rv" style="margin-top:28px">Guía de la comunidad</p>
+      <h2 id="hub-h" class="h2 rv-title">Empieza a <span class="red">jugar</span></h2>
+      <p class="sub rv">Cuatro pasos para pasar de cero a tu primer set online. Es lo mismo que usamos todos.</p>
+      <ol class="hb-route" id="route">
+        <svg class="hb-route__svg" aria-hidden="true"></svg>
+        <li class="hb-step">
+          <span class="hb-step__n" aria-hidden="true">01</span>
+          <div class="hb-step__card">
+            <h3>Instala Slippi</h3>
+            <p>Slippi es el cliente de netplay con rollback, replays y ranked. Descárgalo, apunta a tu ISO de Melee y ya puedes jugar online con quien sea.</p>
+            <div class="hb-step__links"><a class="btn btn-gold btn-sm" href="https://slippi.gg" target="_blank" rel="noopener">slippi.gg →</a></div>
+          </div>
+        </li>
+        <li class="hb-step">
+          <span class="hb-step__n" aria-hidden="true">02</span>
+          <div class="hb-step__card">
+            <h3>Conecta tu control</h3>
+            <p>Adaptador de GameCube por USB. En Windows instala el driver WinUSB con Zadig para que Dolphin reconozca el adaptador; en Mac y Linux funciona directo.</p>
+            <div class="hb-step__links"><a class="btn btn-ghost btn-sm" href="https://zadig.akeo.ie" target="_blank" rel="noopener">Zadig →</a></div>
+          </div>
+        </li>
+        <li class="hb-step">
+          <span class="hb-step__n" aria-hidden="true">03</span>
+          <div class="hb-step__card">
+            <h3>Entrena</h3>
+            <p>UnclePunch Training Mode para tech, ledgedash y L-cancel con eventos guiados; 20XX para practicar con CPUs configurables; Preflight, el mod de práctica de la comunidad.</p>
+            <div class="hb-step__links">
+              <a class="btn btn-ghost btn-sm" href="https://github.com/UnclePunch/Training-Mode" target="_blank" rel="noopener">UnclePunch →</a>
+              <a class="btn btn-ghost btn-sm" href="https://www.ssbwiki.com/20XX_Hack_Pack" target="_blank" rel="noopener">20XX →</a>
+              <span class="is-nolink">Preflight</span>
+            </div>
+          </div>
+        </li>
+        <li class="hb-step">
+          <span class="hb-step__n" aria-hidden="true">04</span>
+          <div class="hb-step__card">
+            <h3>Juega online y en torneos</h3>
+            <p>Unranked para calentar, ranked para subir de rango y los torneos de la comunidad en start.gg. Trae tu control y tu adaptador: los setups son de todos.</p>
+            <div class="hb-step__links">
+              <a class="btn btn-gold btn-sm" href="https://slippi.gg" target="_blank" rel="noopener">Slippi ranked →</a>
+              <a class="btn btn-ghost btn-sm" href="https://www.start.gg/tournament/melee-dominicana" target="_blank" rel="noopener">start.gg →</a>
+            </div>
+          </div>
+        </li>
+      </ol>
+      <div class="hb-extras rv">
+        <p>Más recursos</p>
+        <div class="hb-extras__row">
+          <a href="https://www.ssbwiki.com/Super_Smash_Bros._Melee" target="_blank" rel="noopener">SmashWiki <small>frame data y técnicas</small></a>
+          <a href="https://github.com/doldecomp/melee" target="_blank" rel="noopener">Melee decomp <small>el código del juego</small></a>
+          <a href="https://www.reddit.com/r/SSBM/" target="_blank" rel="noopener">r/SSBM <small>la escena mundial</small></a>
+        </div>
+      </div>
     </section>
 
   </main>
@@ -143,6 +225,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script type="importmap">{"imports":{
+  <script src="sections.js"></script>
     "three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
     "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
   <script type="module" src="falcon3d.js"></script>

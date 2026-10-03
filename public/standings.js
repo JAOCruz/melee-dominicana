@@ -34,6 +34,10 @@
     const title = charName(c) + (COLOR_ES[color] ? ` (${COLOR_ES[color]})` : "");
     return `<img class="rs-char rs-${size}" src="stocks/${pre}${color}.png" alt="${esc(title)}" title="${esc(title)}" loading="lazy" width="24" height="24" />`;
   }
+  // Hooks para sections.js (roster de la escena): mismo mapa de iconos y misma función de retrato.
+  window.MD_STOCK = STOCK;
+  window.MD_CHARS = CHARS;
+  window.MD_portrait = portrait;
 
   const label = (e) => e.team || e.players[0].tag;
   const prefix = (e) => (!e.team && e.players[0].prefix ? e.players[0].prefix : "");
@@ -151,6 +155,8 @@
         <div class="rs-view" data-v="table">${table(ev, byId)}<p class="rs-hint">Toca un jugador para ver a quién le ganó y contra quién perdió.</p></div>
         <div class="rs-view rs-bracket" data-v="bracket" hidden>${bracket(ev, byId)}</div>`;
       root.querySelectorAll(".rs-tabs button").forEach((b) => b.setAttribute("aria-selected", b.dataset.i == i));
+      // Hook visual (sections.js): focos y confeti sobre el podio recién montado.
+      root.dispatchEvent(new CustomEvent("md:results", { bubbles: true, detail: { index: i, event: ev } }));
     };
     root.addEventListener("click", (ev) => {
       const tab = ev.target.closest(".rs-tabs button");
@@ -169,6 +175,7 @@
       }
     });
     show(0);
+    root.classList.add("rs-mounted");
   }
 
   document.querySelectorAll("[data-results]").forEach(mount);

@@ -1,34 +1,7 @@
 (() => {
-  const { clips, players, hub } = window.MD;
-  const el = (tag, cls, html) => {
-    const n = document.createElement(tag);
-    if (cls) n.className = cls;
-    if (html != null) n.innerHTML = html;
-    return n;
-  };
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
-  // Teles del lounge
-  const tvs = document.getElementById("tvs");
-  clips.forEach((c, i) => {
-    const tv = el("button", "tv");
-    tv.type = "button";
-    tv.style.setProperty("--d", `${i * 0.7}s`);
-    tv.setAttribute("aria-label", `Ver: ${c.title}`);
-    tv.innerHTML = `
-      <span class="tv-body">
-        <span class="screen">
-          <img src="https://i.ytimg.com/vi/${esc(c.id)}/hqdefault.jpg" alt="" loading="lazy" />
-          <span class="scan"></span>
-          <span class="play">▶</span>
-        </span>
-        <span class="knobs"><i></i><i></i></span>
-      </span>
-      <span class="stand"></span>
-      <span class="label"><small>${esc(c.tag)}</small>${esc(c.title)}</span>`;
-    tv.addEventListener("click", () => openPlayer(c));
-    tvs.appendChild(tv);
-  });
+  // Las teles del lounge, el roster y la guía los monta sections.js (usa window.MD y este reproductor).
 
   // Reproductor (carga YouTube solo al abrir)
   const dlg = document.getElementById("player");
@@ -43,29 +16,7 @@
   document.getElementById("close").addEventListener("click", closePlayer);
   dlg.addEventListener("click", (e) => { if (e.target === dlg) closePlayer(); });
   dlg.addEventListener("close", () => { frame.innerHTML = ""; });
-
-  // Jugadores
-  const roster = document.getElementById("roster");
-  players.forEach((p) => {
-    const card = el("div", `player-card ${p.country === "PR" ? "pr" : "rd"}`);
-    card.innerHTML = `
-      <span class="flagchip">${esc(p.country)}</span>
-      <b>${esc(p.name)}</b>
-      ${p.aka ? `<small>aka ${esc(p.aka)}</small>` : ""}
-      ${p.main ? `<em>${esc(p.main)}</em>` : ""}`;
-    roster.appendChild(card);
-  });
-
-  // Hub
-  const grid = document.getElementById("hubgrid");
-  hub.forEach((h) => {
-    const a = el("a", "hub-card");
-    a.href = h.url;
-    a.target = "_blank";
-    a.rel = "noopener";
-    a.innerHTML = `<b>${esc(h.name)}</b><p>${esc(h.what)}</p><span>Abrir →</span>`;
-    grid.appendChild(a);
-  });
+  window.MD_openPlayer = openPlayer;
 
   // Bandera RD pixelada ondeando
   const cv = document.getElementById("flag");
