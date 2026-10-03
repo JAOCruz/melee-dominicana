@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="standings.css" />
 </head>
 <body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -79,18 +80,19 @@
           <p class="tag">Próximo torneo</p>
           <h3>Por anunciar</h3>
           <p>La próxima fecha se publica en start.gg y en el canal. Sigue el canal para enterarte primero, y trae tu control.</p>
-          <a class="btn btn-red" href="https://www.start.gg" target="_blank" rel="noopener">Ver en start.gg</a>
+          <a class="btn btn-red" href="https://www.start.gg/tournament/melee-dominicana" target="_blank" rel="noopener">Ver en start.gg</a>
         </div>
         <div class="tourney-past">
           <p class="tag">Anterior · Sábado 5 sep 2026</p>
           <h3>Melee Dominicana <span class="gold">#1</span></h3>
-          <p>El primer torneo de la nueva era: doble eliminación y setups con Slippi.</p>
+          <p>El primer torneo de la nueva era: 22 jugadores en singles y 4 equipos en doubles, doble eliminación y setups con Slippi.</p>
           <ul class="sched">
-            <li><span>2v2</span> Doubles · 2:00 PM</li>
-            <li><span>1v1</span> Singles · 4:00 PM · Bo5 en Top 8</li>
+            <li><span>1v1</span> Campeón: Yamazaki | Ishigami</li>
+            <li><span>2v2</span> Campeones: BeLde</li>
           </ul>
         </div>
       </div>
+      <div class="results" data-results="torneos/md1.json"></div>
     </section>
 
     <!-- ESCENA -->
@@ -136,6 +138,8 @@
 
   <script src="data.js"></script>
   <script src="main.js"></script>
+  <script src="sprites.js"></script>
+  <script src="standings.js"></script>
   <!-- Hero 3D: Captain Falcon en voxels (escultura propia). Si no hay WebGL, el hero se queda con la bandera y el título. -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
