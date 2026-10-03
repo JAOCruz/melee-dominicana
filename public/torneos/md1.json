@@ -1,0 +1,2351 @@
+{
+ "name": "Melee Dominicana #1",
+ "url": "https://www.start.gg/tournament/melee-dominicana",
+ "events": [
+  {
+   "key": "melee-singles",
+   "name": "Melee Singles",
+   "entrants": 22,
+   "standings": [
+    {
+     "id": 24603558,
+     "placement": 1,
+     "team": "",
+     "players": [
+      {
+       "tag": "Ishigami",
+       "prefix": "Yamazaki"
+      }
+     ],
+     "chars": [
+      "marth"
+     ],
+     "wins": 5,
+     "losses": 0
+    },
+    {
+     "id": 24499797,
+     "placement": 2,
+     "team": "",
+     "players": [
+      {
+       "tag": "Zuraco",
+       "prefix": ""
+      }
+     ],
+     "chars": [
+      "falco"
+     ],
+     "wins": 4,
+     "losses": 2
+    },
+    {
+     "id": 24501367,
+     "placement": 3,
+     "team": "",
+     "players": [
+      {
+       "tag": "Stiffff",
+       "prefix": ""
+      }
+     ],
+     "chars": [
+      "falco"
+     ],
+     "wins": 4,
+     "losses": 2
+    },
+    {
+     "id": 24609207,
+     "placement": 4,
+     "team": "",
+     "players": [
+      {
+       "tag": "Duff",
+       "prefix": ""
+      }
+     ],
+     "chars": [
+      "captain-falcon",
+      "marth",
+      "falco"
+     ],
+     "wins": 5,
+     "losses": 2
+    },
+    {
+     "id": 24499378,
+     "placement": 5,
+     "team": "",
+     "players": [
+      {
+       "tag": "Kai",
+       "prefix": "Arlo"
+      }
+     ],
+     "chars": [
+      "fox",
+      "falco"
+     ],
+     "wins": 4,
+     "losses": 2
+    },
+    {
+     "id": 24596178,
+     "placement": 5,
+     "team": "",
+     "players": [
+      {
+       "tag": "NotMe",
+       "prefix": ""
+      }
+     ],
+     "chars": [
+      "captain-falcon"
+     ],
+     "wins": 2,
+     "losses": 2
+    },
+    {
+     "id": 24499950,
+     "placement": 7,
+     "team": "",
+     "players": [
+      {
+       "tag": "Kot",
+       "prefix": ""
+      }
+     ],
+     "chars": [
+      "jigglypuff"
+     ],
+     "wins": 4,
+     "losses": 2
+    },
+    {
+     "id": 24594975,
+     "placement": 7,
+     "team": "",
+     "players": [
+      {
+       "tag": "Lein",
+       "prefix": ""
+      }
+     ],
+     "chars": [
+      "sheik"
+     ],
+     "wins": 2,
+     "losses": 2
+    },
+    {
+     "id": 24589209,
+     "placement": 9,
+     "team": "",
+     "players": [
+      {
+       "tag": "Dominicanoide",
+       "prefix": "C9"
+      }
+     ],
+     "chars": [
+      "sheik"
+     ],
+     "wins": 2,
+     "losses": 2
+    },
+    {
+     "id": 24506304,
+     "placement": 9,
+     "team": "",
+     "players": [
+      {
+       "tag": "Aloric",
+       "prefix": ""
+      }
+     ],
+     "chars": [
+      "marth"
+     ],
+     "wins": 2,
+     "losses": 2
+    },
+    {
+     "id": 24503019,
+     "placement": 9,
+     "team": "",
+     "players": [
+      {
+       "tag": "Ears",
+       "prefix": "CBG"
+      }
+     ],
+     "chars": [
+      "peach"
+     ],
+     "wins": 1,
+     "losses": 2
+    },
+    {
+     "id": 24600844,
+     "placement": 9,
+     "team": "",
+     "players": [
+      {
+       "tag": "KazaGarrouns",
+       "prefix": ""
+      }
+     ],
+     "chars": [
+      "falco"
+     ],
+     "wins": 1,
+     "losses": 2
+    },
+    {
+     "id": 24512671,
+     "placement": 13,
+     "team": "",
+     "players": [
+      {
+       "tag": "Snow",
+       "prefix": ""
+      }
+     ],
+     "chars": [
+      "fox"
+     ],
+     "wins": 2,
+     "losses": 2
+    },
+    {
+     "id": 24601288,
+     "placement": 13,
+     "team": "",
+     "players": [
+      {
+       "tag": "Y-AS",
+       "prefix": ""
+      }
+     ],
+     "chars": [
+      "dr-mario"
+     ],
+     "wins": 2,
+     "losses": 2
+    },
+    {
+     "id": 24506291,
+     "placement": 13,
+     "team": "",
+     "players": [
+      {
+       "tag": "XmileX",
+       "prefix": "La leche mile"
+      }
+     ],
+     "chars": [
+      "captain-falcon"
+     ],
+     "wins": 1,
+     "losses": 2
+    },
+    {
+     "id": 24609222,
+     "placement": 13,
+     "team": "",
+     "players": [
+      {
+       "tag": "B.S",
+       "prefix": "NB"
+      }
+     ],
+     "chars": [
+      "fox",
+      "falco"
+     ],
+     "wins": 1,
+     "losses": 2
+    },
+    {
+     "id": 24500893,
+     "placement": 17,
+     "team": "",
+     "players": [
+      {
+       "tag": "Art2",
+       "prefix": ""
+      }
+     ],
+     "chars": [],
+     "wins": 0,
+     "losses": 2
+    },
+    {
+     "id": 24504434,
+     "placement": 17,
+     "team": "",
+     "players": [
+      {
+       "tag": "Waxo",
+       "prefix": ""
+      }
+     ],
+     "chars": [],
+     "wins": 0,
+     "losses": 2
+    },
+    {
+     "id": 24525790,
+     "placement": 17,
+     "team": "",
+     "players": [
+      {
+       "tag": "cholo",
+       "prefix": ""
+      }
+     ],
+     "chars": [
+      "marth",
+      "luigi"
+     ],
+     "wins": 0,
+     "losses": 2
+    },
+    {
+     "id": 24513283,
+     "placement": 17,
+     "team": "",
+     "players": [
+      {
+       "tag": "Meleesucks",
+       "prefix": "Peter"
+      }
+     ],
+     "chars": [
+      "falco",
+      "mario",
+      "jigglypuff"
+     ],
+     "wins": 0,
+     "losses": 2
+    },
+    {
+     "id": 24544786,
+     "placement": 17,
+     "team": "",
+     "players": [
+      {
+       "tag": "Exo",
+       "prefix": ""
+      }
+     ],
+     "chars": [
+      "marth"
+     ],
+     "wins": 0,
+     "losses": 2
+    },
+    {
+     "id": 24500421,
+     "placement": 17,
+     "team": "",
+     "players": [
+      {
+       "tag": "Scion",
+       "prefix": "MR"
+      }
+     ],
+     "chars": [
+      "marth"
+     ],
+     "wins": 0,
+     "losses": 2
+    }
+   ],
+   "sets": [
+    {
+     "round": "Grand Final",
+     "r": 6,
+     "id": "V",
+     "a": 24603558,
+     "b": 24499797,
+     "sa": 3,
+     "sb": 2,
+     "w": 24603558,
+     "games": [
+      {
+       "w": 24499797,
+       "stage": "Fountain of Dreams",
+       "chars": {
+        "24603558": [
+         "marth"
+        ],
+        "24499797": [
+         "falco"
+        ]
+       }
+      },
+      {
+       "w": 24603558,
+       "stage": null,
+       "chars": {
+        "24499797": [
+         "falco"
+        ],
+        "24603558": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24603558,
+       "stage": null,
+       "chars": {
+        "24499797": [
+         "falco"
+        ],
+        "24603558": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24499797,
+       "stage": null,
+       "chars": {
+        "24499797": [
+         "falco"
+        ],
+        "24603558": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24603558,
+       "stage": null,
+       "chars": {
+        "24499797": [
+         "falco"
+        ],
+        "24603558": [
+         "marth"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Winners Final",
+     "r": 5,
+     "id": "U",
+     "a": 24603558,
+     "b": 24499797,
+     "sa": 3,
+     "sb": 1,
+     "w": 24603558,
+     "games": [
+      {
+       "w": 24603558,
+       "stage": "Yoshi's Story",
+       "chars": {
+        "24603558": [
+         "marth"
+        ],
+        "24499797": [
+         "falco"
+        ]
+       }
+      },
+      {
+       "w": 24603558,
+       "stage": "Dream Land",
+       "chars": {
+        "24603558": [
+         "marth"
+        ],
+        "24499797": [
+         "falco"
+        ]
+       }
+      },
+      {
+       "w": 24499797,
+       "stage": "Dream Land",
+       "chars": {
+        "24603558": [
+         "marth"
+        ],
+        "24499797": [
+         "falco"
+        ]
+       }
+      },
+      {
+       "w": 24603558,
+       "stage": null,
+       "chars": {
+        "24499797": [
+         "falco"
+        ],
+        "24603558": [
+         "marth"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Losers Final",
+     "r": -10,
+     "id": "AQ",
+     "a": 24499797,
+     "b": 24501367,
+     "sa": 3,
+     "sb": 0,
+     "w": 24499797,
+     "games": [
+      {
+       "w": 24499797,
+       "stage": null,
+       "chars": {}
+      },
+      {
+       "w": 24499797,
+       "stage": null,
+       "chars": {}
+      },
+      {
+       "w": 24499797,
+       "stage": null,
+       "chars": {}
+      }
+     ]
+    },
+    {
+     "round": "Losers Semi-Final",
+     "r": -9,
+     "id": "AP",
+     "a": 24501367,
+     "b": 24609207,
+     "sa": 3,
+     "sb": 1,
+     "w": 24501367,
+     "games": [
+      {
+       "w": 24609207,
+       "stage": "Yoshi's Story",
+       "chars": {
+        "24501367": [
+         "falco"
+        ],
+        "24609207": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24501367,
+       "stage": "Final Destination",
+       "chars": {
+        "24501367": [
+         "falco"
+        ],
+        "24609207": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24501367,
+       "stage": "Final Destination",
+       "chars": {
+        "24501367": [
+         "falco"
+        ],
+        "24609207": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24501367,
+       "stage": "Dream Land",
+       "chars": {
+        "24501367": [
+         "falco"
+        ],
+        "24609207": [
+         "captain-falcon"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Winners Semi-Final",
+     "r": 4,
+     "id": "S",
+     "a": 24603558,
+     "b": 24596178,
+     "sa": 3,
+     "sb": 0,
+     "w": 24603558,
+     "games": []
+    },
+    {
+     "round": "Winners Semi-Final",
+     "r": 4,
+     "id": "T",
+     "a": 24499797,
+     "b": 24501367,
+     "sa": 3,
+     "sb": 1,
+     "w": 24499797,
+     "games": [
+      {
+       "w": 24499797,
+       "stage": null,
+       "chars": {}
+      },
+      {
+       "w": 24501367,
+       "stage": null,
+       "chars": {}
+      },
+      {
+       "w": 24499797,
+       "stage": null,
+       "chars": {}
+      },
+      {
+       "w": 24499797,
+       "stage": null,
+       "chars": {}
+      }
+     ]
+    },
+    {
+     "round": "Losers Quarter-Final",
+     "r": -8,
+     "id": "AN",
+     "a": 24501367,
+     "b": 24499378,
+     "sa": 3,
+     "sb": 0,
+     "w": 24501367,
+     "games": []
+    },
+    {
+     "round": "Losers Quarter-Final",
+     "r": -8,
+     "id": "AO",
+     "a": 24596178,
+     "b": 24609207,
+     "sa": 0,
+     "sb": 3,
+     "w": 24609207,
+     "games": [
+      {
+       "w": 24609207,
+       "stage": "Battlefield",
+       "chars": {
+        "24596178": [
+         "captain-falcon"
+        ],
+        "24609207": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24609207,
+       "stage": null,
+       "chars": {
+        "24596178": [
+         "captain-falcon"
+        ],
+        "24609207": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24609207,
+       "stage": null,
+       "chars": {
+        "24596178": [
+         "captain-falcon"
+        ],
+        "24609207": [
+         "marth"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Losers Round 4",
+     "r": -7,
+     "id": "AL",
+     "a": 24499378,
+     "b": 24594975,
+     "sa": 3,
+     "sb": 0,
+     "w": 24499378,
+     "games": [
+      {
+       "w": 24499378,
+       "stage": "Battlefield",
+       "chars": {
+        "24499378": [
+         "fox"
+        ],
+        "24594975": [
+         "sheik"
+        ]
+       }
+      },
+      {
+       "w": 24499378,
+       "stage": null,
+       "chars": {
+        "24499378": [
+         "fox"
+        ],
+        "24594975": [
+         "sheik"
+        ]
+       }
+      },
+      {
+       "w": 24499378,
+       "stage": null,
+       "chars": {
+        "24499378": [
+         "fox"
+        ],
+        "24594975": [
+         "sheik"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Losers Round 4",
+     "r": -7,
+     "id": "AM",
+     "a": 24499950,
+     "b": 24609207,
+     "sa": 2,
+     "sb": 3,
+     "w": 24609207,
+     "games": [
+      {
+       "w": 24499950,
+       "stage": "Dream Land",
+       "chars": {
+        "24499950": [
+         "jigglypuff"
+        ],
+        "24609207": [
+         "captain-falcon"
+        ]
+       }
+      },
+      {
+       "w": 24609207,
+       "stage": "Battlefield",
+       "chars": {
+        "24499950": [
+         "jigglypuff"
+        ],
+        "24609207": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24499950,
+       "stage": "Battlefield",
+       "chars": {
+        "24499950": [
+         "jigglypuff"
+        ],
+        "24609207": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24609207,
+       "stage": "Pokémon Stadium",
+       "chars": {
+        "24499950": [
+         "jigglypuff"
+        ],
+        "24609207": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24609207,
+       "stage": "Fountain of Dreams",
+       "chars": {
+        "24499950": [
+         "jigglypuff"
+        ],
+        "24609207": [
+         "marth"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Winners Quarter-Final",
+     "r": 3,
+     "id": "O",
+     "a": 24603558,
+     "b": 24594975,
+     "sa": 3,
+     "sb": 0,
+     "w": 24603558,
+     "games": [
+      {
+       "w": 24603558,
+       "stage": "Fountain of Dreams",
+       "chars": {
+        "24603558": [
+         "marth"
+        ],
+        "24594975": [
+         "sheik"
+        ]
+       }
+      },
+      {
+       "w": 24603558,
+       "stage": "Battlefield",
+       "chars": {
+        "24603558": [
+         "marth"
+        ],
+        "24594975": [
+         "sheik"
+        ]
+       }
+      },
+      {
+       "w": 24603558,
+       "stage": "Fountain of Dreams",
+       "chars": {
+        "24603558": [
+         "marth"
+        ],
+        "24594975": [
+         "sheik"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Winners Quarter-Final",
+     "r": 3,
+     "id": "P",
+     "a": 24596178,
+     "b": 24503019,
+     "sa": 3,
+     "sb": 0,
+     "w": 24596178,
+     "games": [
+      {
+       "w": 24596178,
+       "stage": "Battlefield",
+       "chars": {
+        "24596178": [
+         "captain-falcon"
+        ],
+        "24503019": [
+         "peach"
+        ]
+       }
+      },
+      {
+       "w": 24596178,
+       "stage": "Dream Land",
+       "chars": {
+        "24596178": [
+         "captain-falcon"
+        ],
+        "24503019": [
+         "peach"
+        ]
+       }
+      },
+      {
+       "w": 24596178,
+       "stage": "Dream Land",
+       "chars": {
+        "24596178": [
+         "captain-falcon"
+        ],
+        "24503019": [
+         "peach"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Winners Quarter-Final",
+     "r": 3,
+     "id": "Q",
+     "a": 24499797,
+     "b": 24600844,
+     "sa": 3,
+     "sb": 1,
+     "w": 24499797,
+     "games": [
+      {
+       "w": 24600844,
+       "stage": "Yoshi's Story",
+       "chars": {}
+      },
+      {
+       "w": 24499797,
+       "stage": "Dream Land",
+       "chars": {}
+      },
+      {
+       "w": 24499797,
+       "stage": "Battlefield",
+       "chars": {}
+      },
+      {
+       "w": 24499797,
+       "stage": null,
+       "chars": {}
+      }
+     ]
+    },
+    {
+     "round": "Winners Quarter-Final",
+     "r": 3,
+     "id": "R",
+     "a": 24501367,
+     "b": 24589209,
+     "sa": 3,
+     "sb": 2,
+     "w": 24501367,
+     "games": [
+      {
+       "w": 24501367,
+       "stage": "Dream Land",
+       "chars": {}
+      },
+      {
+       "w": 24501367,
+       "stage": null,
+       "chars": {}
+      },
+      {
+       "w": 24589209,
+       "stage": null,
+       "chars": {}
+      },
+      {
+       "w": 24589209,
+       "stage": null,
+       "chars": {}
+      },
+      {
+       "w": 24501367,
+       "stage": null,
+       "chars": {}
+      }
+     ]
+    },
+    {
+     "round": "Losers Round 3",
+     "r": -6,
+     "id": "AH",
+     "a": 24503019,
+     "b": 24499378,
+     "sa": 1,
+     "sb": 3,
+     "w": 24499378,
+     "games": [
+      {
+       "w": 24503019,
+       "stage": "Battlefield",
+       "chars": {
+        "24503019": [
+         "peach"
+        ],
+        "24499378": [
+         "fox"
+        ]
+       }
+      },
+      {
+       "w": 24499378,
+       "stage": "Pokémon Stadium",
+       "chars": {
+        "24503019": [
+         "peach"
+        ],
+        "24499378": [
+         "fox"
+        ]
+       }
+      },
+      {
+       "w": 24499378,
+       "stage": "Dream Land",
+       "chars": {
+        "24503019": [
+         "peach"
+        ],
+        "24499378": [
+         "fox"
+        ]
+       }
+      },
+      {
+       "w": 24499378,
+       "stage": "Fountain of Dreams",
+       "chars": {
+        "24503019": [
+         "peach"
+        ],
+        "24499378": [
+         "fox"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Losers Round 3",
+     "r": -6,
+     "id": "AI",
+     "a": 24594975,
+     "b": 24506304,
+     "sa": 3,
+     "sb": 0,
+     "w": 24594975,
+     "games": [
+      {
+       "w": 24594975,
+       "stage": "Battlefield",
+       "chars": {}
+      },
+      {
+       "w": 24594975,
+       "stage": null,
+       "chars": {}
+      },
+      {
+       "w": 24594975,
+       "stage": null,
+       "chars": {}
+      }
+     ]
+    },
+    {
+     "round": "Losers Round 3",
+     "r": -6,
+     "id": "AJ",
+     "a": 24589209,
+     "b": 24499950,
+     "sa": 0,
+     "sb": 3,
+     "w": 24499950,
+     "games": [
+      {
+       "w": 24499950,
+       "stage": "Battlefield",
+       "chars": {
+        "24589209": [
+         "sheik"
+        ],
+        "24499950": [
+         "jigglypuff"
+        ]
+       }
+      },
+      {
+       "w": 24499950,
+       "stage": "Yoshi's Story",
+       "chars": {
+        "24589209": [
+         "sheik"
+        ],
+        "24499950": [
+         "jigglypuff"
+        ]
+       }
+      },
+      {
+       "w": 24499950,
+       "stage": "Battlefield",
+       "chars": {
+        "24589209": [
+         "sheik"
+        ],
+        "24499950": [
+         "jigglypuff"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Losers Round 3",
+     "r": -6,
+     "id": "AK",
+     "a": 24600844,
+     "b": 24609207,
+     "sa": 0,
+     "sb": 3,
+     "w": 24609207,
+     "games": [
+      {
+       "w": 24609207,
+       "stage": "Yoshi's Story",
+       "chars": {
+        "24600844": [
+         "falco"
+        ],
+        "24609207": [
+         "captain-falcon"
+        ]
+       }
+      },
+      {
+       "w": 24609207,
+       "stage": "Yoshi's Story",
+       "chars": {
+        "24609207": [
+         "captain-falcon"
+        ],
+        "24600844": [
+         "falco"
+        ]
+       }
+      },
+      {
+       "w": 24609207,
+       "stage": "Battlefield",
+       "chars": {
+        "24600844": [
+         "falco"
+        ],
+        "24609207": [
+         "captain-falcon"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Losers Round 2",
+     "r": -5,
+     "id": "AD",
+     "a": 24499378,
+     "b": 24609222,
+     "sa": 3,
+     "sb": 1,
+     "w": 24499378,
+     "games": [
+      {
+       "w": 24499378,
+       "stage": "Fountain of Dreams",
+       "chars": {
+        "24499378": [
+         "falco"
+        ],
+        "24609222": [
+         "fox"
+        ]
+       }
+      },
+      {
+       "w": 24499378,
+       "stage": "Dream Land",
+       "chars": {
+        "24499378": [
+         "falco"
+        ],
+        "24609222": [
+         "fox"
+        ]
+       }
+      },
+      {
+       "w": 24609222,
+       "stage": "Yoshi's Story",
+       "chars": {
+        "24499378": [
+         "falco"
+        ],
+        "24609222": [
+         "fox"
+        ]
+       }
+      },
+      {
+       "w": 24499378,
+       "stage": "Pokémon Stadium",
+       "chars": {
+        "24499378": [
+         "falco"
+        ],
+        "24609222": [
+         "fox"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Losers Round 2",
+     "r": -5,
+     "id": "AE",
+     "a": 24506304,
+     "b": 24601288,
+     "sa": 3,
+     "sb": 2,
+     "w": 24506304,
+     "games": [
+      {
+       "w": 24601288,
+       "stage": "Fountain of Dreams",
+       "chars": {
+        "24506304": [
+         "marth"
+        ],
+        "24601288": [
+         "dr-mario"
+        ]
+       }
+      },
+      {
+       "w": 24506304,
+       "stage": "Battlefield",
+       "chars": {
+        "24506304": [
+         "marth"
+        ],
+        "24601288": [
+         "dr-mario"
+        ]
+       }
+      },
+      {
+       "w": 24601288,
+       "stage": "Dream Land",
+       "chars": {
+        "24506304": [
+         "marth"
+        ],
+        "24601288": [
+         "dr-mario"
+        ]
+       }
+      },
+      {
+       "w": 24506304,
+       "stage": "Fountain of Dreams",
+       "chars": {
+        "24506304": [
+         "marth"
+        ],
+        "24601288": [
+         "dr-mario"
+        ]
+       }
+      },
+      {
+       "w": 24506304,
+       "stage": "Pokémon Stadium",
+       "chars": {
+        "24506304": [
+         "marth"
+        ],
+        "24601288": [
+         "dr-mario"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Losers Round 2",
+     "r": -5,
+     "id": "AF",
+     "a": 24499950,
+     "b": 24506291,
+     "sa": 3,
+     "sb": 0,
+     "w": 24499950,
+     "games": [
+      {
+       "w": 24499950,
+       "stage": "Fountain of Dreams",
+       "chars": {
+        "24499950": [
+         "jigglypuff"
+        ],
+        "24506291": [
+         "captain-falcon"
+        ]
+       }
+      },
+      {
+       "w": 24499950,
+       "stage": "Yoshi's Story",
+       "chars": {
+        "24499950": [
+         "jigglypuff"
+        ],
+        "24506291": [
+         "captain-falcon"
+        ]
+       }
+      },
+      {
+       "w": 24499950,
+       "stage": "Battlefield",
+       "chars": {
+        "24499950": [
+         "jigglypuff"
+        ],
+        "24506291": [
+         "captain-falcon"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Losers Round 2",
+     "r": -5,
+     "id": "AG",
+     "a": 24609207,
+     "b": 24512671,
+     "sa": 3,
+     "sb": 0,
+     "w": 24609207,
+     "games": [
+      {
+       "w": 24609207,
+       "stage": "Battlefield",
+       "chars": {
+        "24609207": [
+         "captain-falcon"
+        ],
+        "24512671": [
+         "fox"
+        ]
+       }
+      },
+      {
+       "w": 24609207,
+       "stage": "Pokémon Stadium",
+       "chars": {
+        "24609207": [
+         "captain-falcon"
+        ],
+        "24512671": [
+         "fox"
+        ]
+       }
+      },
+      {
+       "w": 24609207,
+       "stage": "Final Destination",
+       "chars": {
+        "24609207": [
+         "captain-falcon"
+        ],
+        "24512671": [
+         "fox"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Winners Round 2",
+     "r": 2,
+     "id": "G",
+     "a": 24603558,
+     "b": 24512671,
+     "sa": 3,
+     "sb": 0,
+     "w": 24603558,
+     "games": [
+      {
+       "w": 24603558,
+       "stage": "Battlefield",
+       "chars": {
+        "24603558": [
+         "marth"
+        ],
+        "24512671": [
+         "fox"
+        ]
+       }
+      },
+      {
+       "w": 24603558,
+       "stage": "Final Destination",
+       "chars": {
+        "24603558": [
+         "marth"
+        ],
+        "24512671": [
+         "fox"
+        ]
+       }
+      },
+      {
+       "w": 24603558,
+       "stage": null,
+       "chars": {
+        "24512671": [
+         "fox"
+        ],
+        "24603558": [
+         "marth"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Winners Round 2",
+     "r": 2,
+     "id": "H",
+     "a": 24609207,
+     "b": 24594975,
+     "sa": 0,
+     "sb": 3,
+     "w": 24594975,
+     "games": [
+      {
+       "w": 24594975,
+       "stage": "Battlefield",
+       "chars": {
+        "24609207": [
+         "falco"
+        ],
+        "24594975": [
+         "sheik"
+        ]
+       }
+      },
+      {
+       "w": 24594975,
+       "stage": "Battlefield",
+       "chars": {
+        "24609207": [
+         "falco"
+        ],
+        "24594975": [
+         "sheik"
+        ]
+       }
+      },
+      {
+       "w": 24594975,
+       "stage": "Dream Land",
+       "chars": {
+        "24609207": [
+         "captain-falcon"
+        ],
+        "24594975": [
+         "sheik"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Winners Round 2",
+     "r": 2,
+     "id": "I",
+     "a": 24596178,
+     "b": 24506291,
+     "sa": 3,
+     "sb": 0,
+     "w": 24596178,
+     "games": [
+      {
+       "w": 24596178,
+       "stage": "Fountain of Dreams",
+       "chars": {
+        "24596178": [
+         "captain-falcon"
+        ],
+        "24506291": [
+         "captain-falcon"
+        ]
+       }
+      },
+      {
+       "w": 24596178,
+       "stage": "Pokémon Stadium",
+       "chars": {
+        "24596178": [
+         "captain-falcon"
+        ],
+        "24506291": [
+         "captain-falcon"
+        ]
+       }
+      },
+      {
+       "w": 24596178,
+       "stage": "Dream Land",
+       "chars": {
+        "24596178": [
+         "captain-falcon"
+        ],
+        "24506291": [
+         "captain-falcon"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Winners Round 2",
+     "r": 2,
+     "id": "J",
+     "a": 24503019,
+     "b": 24499950,
+     "sa": 3,
+     "sb": 0,
+     "w": 24503019,
+     "games": [
+      {
+       "w": 24503019,
+       "stage": "Battlefield",
+       "chars": {
+        "24503019": [
+         "peach"
+        ],
+        "24499950": [
+         "jigglypuff"
+        ]
+       }
+      },
+      {
+       "w": 24503019,
+       "stage": "Battlefield",
+       "chars": {
+        "24503019": [
+         "peach"
+        ],
+        "24499950": [
+         "jigglypuff"
+        ]
+       }
+      },
+      {
+       "w": 24503019,
+       "stage": "Battlefield",
+       "chars": {
+        "24503019": [
+         "peach"
+        ],
+        "24499950": [
+         "jigglypuff"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Winners Round 2",
+     "r": 2,
+     "id": "K",
+     "a": 24499797,
+     "b": 24601288,
+     "sa": 3,
+     "sb": 0,
+     "w": 24499797,
+     "games": [
+      {
+       "w": 24499797,
+       "stage": "Pokémon Stadium",
+       "chars": {
+        "24499797": [
+         "falco"
+        ],
+        "24601288": [
+         "dr-mario"
+        ]
+       }
+      },
+      {
+       "w": 24499797,
+       "stage": "Final Destination",
+       "chars": {
+        "24499797": [
+         "falco"
+        ],
+        "24601288": [
+         "dr-mario"
+        ]
+       }
+      },
+      {
+       "w": 24499797,
+       "stage": "Final Destination",
+       "chars": {
+        "24499797": [
+         "falco"
+        ],
+        "24601288": [
+         "dr-mario"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Winners Round 2",
+     "r": 2,
+     "id": "L",
+     "a": 24600844,
+     "b": 24506304,
+     "sa": 3,
+     "sb": 1,
+     "w": 24600844,
+     "games": [
+      {
+       "w": 24600844,
+       "stage": "Battlefield",
+       "chars": {
+        "24600844": [
+         "falco"
+        ],
+        "24506304": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24506304,
+       "stage": "Fountain of Dreams",
+       "chars": {
+        "24600844": [
+         "falco"
+        ],
+        "24506304": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24600844,
+       "stage": "Battlefield",
+       "chars": {
+        "24600844": [
+         "falco"
+        ],
+        "24506304": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24600844,
+       "stage": "Pokémon Stadium",
+       "chars": {
+        "24600844": [
+         "falco"
+        ],
+        "24506304": [
+         "marth"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Winners Round 2",
+     "r": 2,
+     "id": "M",
+     "a": 24501367,
+     "b": 24609222,
+     "sa": 3,
+     "sb": 0,
+     "w": 24501367,
+     "games": [
+      {
+       "w": 24501367,
+       "stage": "Dream Land",
+       "chars": {
+        "24501367": [
+         "falco"
+        ],
+        "24609222": [
+         "fox"
+        ]
+       }
+      },
+      {
+       "w": 24501367,
+       "stage": "Fountain of Dreams",
+       "chars": {
+        "24501367": [
+         "falco"
+        ],
+        "24609222": [
+         "fox"
+        ]
+       }
+      },
+      {
+       "w": 24501367,
+       "stage": "Final Destination",
+       "chars": {
+        "24501367": [
+         "falco"
+        ],
+        "24609222": [
+         "fox"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Winners Round 2",
+     "r": 2,
+     "id": "N",
+     "a": 24499378,
+     "b": 24589209,
+     "sa": -1,
+     "sb": 0,
+     "w": 24589209,
+     "games": []
+    },
+    {
+     "round": "Losers Round 1",
+     "r": -4,
+     "id": "AA",
+     "a": 24499950,
+     "b": 24513283,
+     "sa": 3,
+     "sb": 0,
+     "w": 24499950,
+     "games": [
+      {
+       "w": 24499950,
+       "stage": "Dream Land",
+       "chars": {
+        "24499950": [
+         "jigglypuff"
+        ],
+        "24513283": [
+         "falco"
+        ]
+       }
+      },
+      {
+       "w": 24499950,
+       "stage": "Pokémon Stadium",
+       "chars": {
+        "24499950": [
+         "jigglypuff"
+        ],
+        "24513283": [
+         "mario"
+        ]
+       }
+      },
+      {
+       "w": 24499950,
+       "stage": "Pokémon Stadium",
+       "chars": {
+        "24499950": [
+         "jigglypuff"
+        ],
+        "24513283": [
+         "jigglypuff"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Losers Round 1",
+     "r": -4,
+     "id": "AB",
+     "a": 24609207,
+     "b": 24544786,
+     "sa": 3,
+     "sb": 1,
+     "w": 24609207,
+     "games": [
+      {
+       "w": 24609207,
+       "stage": "Battlefield",
+       "chars": {
+        "24609207": [
+         "captain-falcon"
+        ],
+        "24544786": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24544786,
+       "stage": "Yoshi's Story",
+       "chars": {
+        "24609207": [
+         "captain-falcon"
+        ],
+        "24544786": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24609207,
+       "stage": "Final Destination",
+       "chars": {
+        "24609207": [
+         "captain-falcon"
+        ],
+        "24544786": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24609207,
+       "stage": "Final Destination",
+       "chars": {
+        "24609207": [
+         "captain-falcon"
+        ],
+        "24544786": [
+         "marth"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Losers Round 1",
+     "r": -4,
+     "id": "AC",
+     "a": 24512671,
+     "b": 24500421,
+     "sa": 0,
+     "sb": -1,
+     "w": 24512671,
+     "games": []
+    },
+    {
+     "round": "Losers Round 1",
+     "r": -4,
+     "id": "X",
+     "a": 24499378,
+     "b": 24500893,
+     "sa": -1,
+     "sb": -1,
+     "w": 24499378,
+     "games": []
+    },
+    {
+     "round": "Losers Round 1",
+     "r": -4,
+     "id": "Y",
+     "a": 24506304,
+     "b": 24504434,
+     "sa": 0,
+     "sb": -1,
+     "w": 24506304,
+     "games": []
+    },
+    {
+     "round": "Losers Round 1",
+     "r": -4,
+     "id": "Z",
+     "a": 24601288,
+     "b": 24525790,
+     "sa": 3,
+     "sb": 0,
+     "w": 24601288,
+     "games": [
+      {
+       "w": 24601288,
+       "stage": "Fountain of Dreams",
+       "chars": {
+        "24601288": [
+         "dr-mario"
+        ],
+        "24525790": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24601288,
+       "stage": "Final Destination",
+       "chars": {
+        "24601288": [
+         "dr-mario"
+        ],
+        "24525790": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24601288,
+       "stage": "Yoshi's Story",
+       "chars": {
+        "24601288": [
+         "dr-mario"
+        ],
+        "24525790": [
+         "luigi"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Winners Round 1",
+     "r": 1,
+     "id": "A",
+     "a": 24500893,
+     "b": 24512671,
+     "sa": -1,
+     "sb": 0,
+     "w": 24512671,
+     "games": []
+    },
+    {
+     "round": "Winners Round 1",
+     "r": 1,
+     "id": "B",
+     "a": 24504434,
+     "b": 24506291,
+     "sa": -1,
+     "sb": null,
+     "w": 24506291,
+     "games": []
+    },
+    {
+     "round": "Winners Round 1",
+     "r": 1,
+     "id": "C",
+     "a": 24499950,
+     "b": 24525790,
+     "sa": 3,
+     "sb": 0,
+     "w": 24499950,
+     "games": [
+      {
+       "w": 24499950,
+       "stage": "Battlefield",
+       "chars": {
+        "24499950": [
+         "jigglypuff"
+        ],
+        "24525790": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24499950,
+       "stage": "Pokémon Stadium",
+       "chars": {
+        "24499950": [
+         "jigglypuff"
+        ],
+        "24525790": [
+         "luigi"
+        ]
+       }
+      },
+      {
+       "w": 24499950,
+       "stage": "Final Destination",
+       "chars": {
+        "24499950": [
+         "jigglypuff"
+        ],
+        "24525790": [
+         "marth"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Winners Round 1",
+     "r": 1,
+     "id": "D",
+     "a": 24601288,
+     "b": 24513283,
+     "sa": 0,
+     "sb": -1,
+     "w": 24601288,
+     "games": []
+    },
+    {
+     "round": "Winners Round 1",
+     "r": 1,
+     "id": "E",
+     "a": 24609222,
+     "b": 24544786,
+     "sa": 3,
+     "sb": 1,
+     "w": 24609222,
+     "games": [
+      {
+       "w": 24609222,
+       "stage": "Yoshi's Story",
+       "chars": {
+        "24609222": [
+         "falco"
+        ],
+        "24544786": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24544786,
+       "stage": "Yoshi's Story",
+       "chars": {
+        "24609222": [
+         "falco"
+        ],
+        "24544786": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24609222,
+       "stage": "Dream Land",
+       "chars": {
+        "24609222": [
+         "falco"
+        ],
+        "24544786": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24609222,
+       "stage": "Pokémon Stadium",
+       "chars": {
+        "24609222": [
+         "fox"
+        ],
+        "24544786": [
+         "marth"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Winners Round 1",
+     "r": 1,
+     "id": "F",
+     "a": 24589209,
+     "b": 24500421,
+     "sa": 3,
+     "sb": 0,
+     "w": 24589209,
+     "games": [
+      {
+       "w": 24589209,
+       "stage": "Dream Land",
+       "chars": {
+        "24589209": [
+         "sheik"
+        ],
+        "24500421": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24589209,
+       "stage": "Final Destination",
+       "chars": {
+        "24589209": [
+         "sheik"
+        ],
+        "24500421": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24589209,
+       "stage": "Final Destination",
+       "chars": {
+        "24589209": [
+         "sheik"
+        ],
+        "24500421": [
+         "marth"
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "melee-doubles",
+   "name": "Melee Doubles",
+   "entrants": 4,
+   "standings": [
+    {
+     "id": 24505221,
+     "placement": 1,
+     "team": "BeLde",
+     "players": [
+      {
+       "tag": "Zuraco",
+       "prefix": ""
+      },
+      {
+       "tag": "NotMe",
+       "prefix": ""
+      }
+     ],
+     "chars": [
+      "falco"
+     ],
+     "wins": 3,
+     "losses": 0
+    },
+    {
+     "id": 24606507,
+     "placement": 2,
+     "team": "Págame el Uber",
+     "players": [
+      {
+       "tag": "Aloric",
+       "prefix": ""
+      },
+      {
+       "tag": "KazaGarrouns",
+       "prefix": ""
+      }
+     ],
+     "chars": [
+      "falco",
+      "marth"
+     ],
+     "wins": 2,
+     "losses": 2
+    },
+    {
+     "id": 24500483,
+     "placement": 3,
+     "team": "IHEARTCAMPING",
+     "players": [
+      {
+       "tag": "Kot",
+       "prefix": ""
+      },
+      {
+       "tag": "Scion",
+       "prefix": "MR"
+      }
+     ],
+     "chars": [],
+     "wins": 1,
+     "losses": 2
+    },
+    {
+     "id": 24513414,
+     "placement": 4,
+     "team": "Villa's crew",
+     "players": [
+      {
+       "tag": "Snow",
+       "prefix": ""
+      },
+      {
+       "tag": "Meleesucks",
+       "prefix": "Peter"
+      }
+     ],
+     "chars": [],
+     "wins": 0,
+     "losses": 2
+    }
+   ],
+   "sets": [
+    {
+     "round": "Grand Final",
+     "r": 3,
+     "id": "D",
+     "a": 24505221,
+     "b": 24606507,
+     "sa": 3,
+     "sb": 0,
+     "w": 24505221,
+     "games": [
+      {
+       "w": 24505221,
+       "stage": "Battlefield",
+       "chars": {
+        "24505221": [
+         "falco"
+        ],
+        "24606507": [
+         "falco"
+        ]
+       }
+      },
+      {
+       "w": 24505221,
+       "stage": "Final Destination",
+       "chars": {
+        "24505221": [
+         "falco"
+        ],
+        "24606507": [
+         "marth"
+        ]
+       }
+      },
+      {
+       "w": 24505221,
+       "stage": null,
+       "chars": {
+        "24505221": [
+         "falco"
+        ],
+        "24606507": [
+         "marth"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Winners Final",
+     "r": 2,
+     "id": "C",
+     "a": 24505221,
+     "b": 24606507,
+     "sa": 3,
+     "sb": 0,
+     "w": 24505221,
+     "games": [
+      {
+       "w": 24505221,
+       "stage": "Battlefield",
+       "chars": {
+        "24505221": [
+         "falco"
+        ],
+        "24606507": [
+         "falco"
+        ]
+       }
+      },
+      {
+       "w": 24505221,
+       "stage": "Final Destination",
+       "chars": {
+        "24505221": [
+         "falco"
+        ],
+        "24606507": [
+         "falco"
+        ]
+       }
+      },
+      {
+       "w": 24505221,
+       "stage": "Final Destination",
+       "chars": {
+        "24505221": [
+         "falco"
+        ],
+        "24606507": [
+         "marth"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "round": "Losers Final",
+     "r": -4,
+     "id": "G",
+     "a": 24606507,
+     "b": 24500483,
+     "sa": 0,
+     "sb": -1,
+     "w": 24606507,
+     "games": []
+    },
+    {
+     "round": "Losers Semi-Final",
+     "r": -3,
+     "id": "F",
+     "a": 24513414,
+     "b": 24500483,
+     "sa": -1,
+     "sb": 0,
+     "w": 24500483,
+     "games": []
+    },
+    {
+     "round": "Winners Semi-Final",
+     "r": 1,
+     "id": "A",
+     "a": 24505221,
+     "b": 24513414,
+     "sa": 0,
+     "sb": -1,
+     "w": 24505221,
+     "games": []
+    },
+    {
+     "round": "Winners Semi-Final",
+     "r": 1,
+     "id": "B",
+     "a": 24606507,
+     "b": 24500483,
+     "sa": 0,
+     "sb": -1,
+     "w": 24606507,
+     "games": []
+    }
+   ]
+  }
+ ],
+ "startAt": 1788638400
+}
