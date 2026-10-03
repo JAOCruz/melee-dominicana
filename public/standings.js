@@ -12,20 +12,10 @@
   const charName = (c) => CHARS[c] || c;
   const ordinal = (n) => `${n}º`;
 
-  // Retrato del personaje: sprite pixel si existe (sprites.js), si no una ficha con iniciales.
+  // Icono de stock del personaje (public/stocks/<slug>.png, sacados de start.gg).
   function portrait(c, size = "md") {
-    if (!c) return `<span class="rs-char rs-${size} rs-empty" title="Sin personaje reportado">?</span>`;
-    if (window.MD_SPRITES && window.MD_SPRITES[c]) {
-      return `<canvas class="rs-char rs-${size}" width="32" height="32" data-sprite="${esc(c)}" role="img" aria-label="${esc(charName(c))}" title="${esc(charName(c))}"></canvas>`;
-    }
-    const ini = charName(c).split(/[\s.&]+/).filter(Boolean).map((w) => w[0]).join("").slice(0, 2);
-    return `<span class="rs-char rs-${size} rs-ini" title="${esc(charName(c))}">${esc(ini)}</span>`;
-  }
-  function paintSprites(root) {
-    if (!window.MD_drawSprite) return;
-    root.querySelectorAll("canvas[data-sprite]").forEach((cv) => {
-      if (!cv.dataset.done) { window.MD_drawSprite(cv.dataset.sprite, cv); cv.dataset.done = "1"; }
-    });
+    if (!c) return `<span class="rs-char rs-${size} rs-empty" title="Sin personaje reportado"><img src="stocks/random-character.png" alt="" /></span>`;
+    return `<img class="rs-char rs-${size}" src="stocks/${esc(c)}.png" alt="${esc(charName(c))}" title="${esc(charName(c))}" loading="lazy" width="32" height="32" />`;
   }
 
   const label = (e) => e.team || e.players[0].tag;
@@ -143,7 +133,6 @@
         </div>
         <div class="rs-view" data-v="table">${table(ev, byId)}<p class="rs-hint">Toca un jugador para ver a quién le ganó y contra quién perdió.</p></div>
         <div class="rs-view rs-bracket" data-v="bracket" hidden>${bracket(ev, byId)}</div>`;
-      paintSprites(body);
       root.querySelectorAll(".rs-tabs button").forEach((b) => b.setAttribute("aria-selected", b.dataset.i == i));
     };
     root.addEventListener("click", (ev) => {

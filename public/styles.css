@@ -111,7 +111,6 @@ a { color: inherit; }
 .hero-hint { display: none; }
 
 /* Hero con Falcon 3D activo (.has-3d solo tras el primer frame WebGL) */
-html.has-lenis { scroll-behavior: auto; }
 .hero.has-3d {
   height: calc(100svh - var(--navh, 52px));
   min-height: 600px;

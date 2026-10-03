@@ -2,7 +2,7 @@
    Melee Dominicana — hero 3D: Captain Falcon en voxels (escultura
    original, ver falcon-voxels.js). Three.js r169 por importmap.
    Cámara en diagonal con dutch angle ligada al scroll (GSAP
-   ScrollTrigger + Lenis); al final el puño se enciende (ave de fuego).
+   ScrollTrigger); al final el puño se enciende (ave de fuego).
    Si falla WebGL / el módulo, el hero se queda con la bandera y el
    título (sin clase .has-3d).
    ===================================================================== */
@@ -24,26 +24,10 @@ const motion = hasGsap && !reduced;
 const navH = () => (nav ? nav.offsetHeight : 0);
 const BG = 0x07080f;
 
-/* ---------- Lenis + ScrollTrigger (scroll suave de toda la página) ---------- */
-let lenis = null;
+/* ---------- ScrollTrigger con scroll nativo (Lenis se quitó: hacía el scroll lento) ---------- */
 function setupScroll() {
   if (!motion) return;
   gsap.registerPlugin(ScrollTrigger);
-  if (window.Lenis) {
-    document.documentElement.classList.add('has-lenis');
-    lenis = new Lenis({ lerp: 0.09, smoothWheel: true });
-    lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((t) => lenis.raf(t * 1000));
-    gsap.ticker.lagSmoothing(0);
-    document.addEventListener('click', (e) => {
-      const a = e.target.closest('a[href^="#"]');
-      if (!a || a.getAttribute('href').length < 2) return;
-      const el = document.querySelector(a.getAttribute('href'));
-      if (!el) return;
-      e.preventDefault();
-      lenis.scrollTo(el, { offset: -navH(), duration: 1.2 });
-    });
-  }
 }
 
 /* ---------- Escena ---------- */
@@ -353,7 +337,7 @@ function main() {
       .to('.hero .lede, .hero .cta', { opacity: 0, y: -10, ease: 'power2.in', duration: 0.35 }, 0.55);
     ScrollTrigger.create({
       trigger: hero, start: () => 'top ' + navH(), end: () => '+=' + Math.round(innerHeight * (mobile ? 1.0 : 1.15)),
-      pin: true, scrub: 0.6, anticipatePin: 1, invalidateOnRefresh: true, refreshPriority: 5, animation: tl,
+      pin: true, scrub: 0.25, anticipatePin: 1, invalidateOnRefresh: true, refreshPriority: 5, animation: tl,
       onUpdate: (self) => { S.p = self.progress; ignite(self.progress >= 0.64 ? true : self.progress < 0.56 ? false : S.lit); start(); },
       onRefresh: (self) => { S.p = self.progress; document.documentElement.style.setProperty('--navh', navH() + 'px'); },
     });
