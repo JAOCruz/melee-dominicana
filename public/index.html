@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="standings.css" />
   <link rel="stylesheet" href="sections.css" />
+  <link rel="stylesheet" href="submit.css" />
 </head>
 <body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -39,6 +40,7 @@
       <a href="#torneos">Torneos</a>
       <a href="#escena">Escena</a>
       <a href="#hub">Empieza</a>
+      <a href="#envia">Envía</a>
       <a class="btn-yt" href="https://www.youtube.com/channel/UC3pTL3ikdL8_8REeSHtinSQ" target="_blank" rel="noopener">YouTube</a>
     </div>
   </nav>
@@ -201,6 +203,56 @@
       </div>
     </section>
 
+    <!-- ENVÍA: clips, sets y streams de la comunidad (Netlify Forms) -->
+    <section id="envia" class="wrap section sb" aria-labelledby="envia-h">
+      <div class="sep" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="kicker kicker--sec rv" style="margin-top:28px">Comunidad</p>
+      <h2 id="envia-h" class="h2 rv-title">Manda tu <span class="gold">jugada</span></h2>
+      <p class="sub rv">¿Tienes un clip épico, un set que hay que ver o vas a stremear? Mándalo. Lo revisamos y, si entra, sale en el canal y aquí con tu nombre.</p>
+
+      <form class="sb-form rv" name="envios" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" action="/enviado.html">
+        <input type="hidden" name="form-name" value="envios" />
+        <p class="sb-hp" aria-hidden="true"><label>No llenes esto: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+
+        <fieldset class="sb-type">
+          <legend>¿Qué mandas?</legend>
+          <label><input type="radio" name="tipo" value="clip" checked /><span><b>Clip</b><small>Una jugada, combo o momento</small></span></label>
+          <label><input type="radio" name="tipo" value="set" /><span><b>Set</b><small>Un set completo o un money match</small></span></label>
+          <label><input type="radio" name="tipo" value="stream" /><span><b>Stream</b><small>Tu canal o un stream que viene</small></span></label>
+        </fieldset>
+
+        <div class="sb-grid">
+          <label class="sb-f sb-f--wide"><span>Link <em data-show="clip set">(YouTube, Twitch, X, Drive, Medal…)</em><em data-show="stream" hidden>(tu canal de Twitch o YouTube)</em></span>
+            <input type="url" name="link" placeholder="https://" inputmode="url" /></label>
+
+          <label class="sb-f sb-f--wide" data-show="clip set"><span>…o sube el replay <em>(.slp, máx. 8 MB; lo renderizamos nosotros)</em></span>
+            <input type="file" name="replay" accept=".slp" /></label>
+
+          <label class="sb-f"><span>Tu tag *</span><input type="text" name="tag" required maxlength="40" autocomplete="nickname" /></label>
+          <label class="sb-f"><span>Connect code <em>(opcional)</em></span><input type="text" name="connect_code" maxlength="10" placeholder="ABCD#123" pattern="[A-Za-z0-9]{1,4}#[0-9]{1,4}" /></label>
+
+          <label class="sb-f" data-show="clip set"><span>Jugadores y personajes</span><input type="text" name="jugadores" maxlength="120" placeholder="NotMe (Falcon) vs Aloric (Marth)" /></label>
+          <label class="sb-f" data-show="clip set"><span>Torneo o fecha <em>(opcional)</em></span><input type="text" name="torneo" maxlength="80" placeholder="Melee Dominicana #1 · 5 sep" /></label>
+
+          <label class="sb-f" data-show="stream" hidden><span>¿Cuándo stremeas?</span><input type="text" name="horario" maxlength="80" placeholder="Martes y jueves 8 PM" /></label>
+          <label class="sb-f" data-show="stream" hidden><span>¿Qué vas a stremear?</span><input type="text" name="contenido_stream" maxlength="120" placeholder="Ranked, netplay con la comunidad, torneo…" /></label>
+
+          <label class="sb-f sb-f--wide"><span>¿Qué pasa? <em data-show="clip set">(minuto exacto si es un video largo)</em></span>
+            <textarea name="descripcion" rows="3" maxlength="600" placeholder="Falcon Punch leído en el último stock, 12:40"></textarea></label>
+
+          <label class="sb-f sb-f--wide"><span>¿Cómo te contactamos? <em>(Instagram, Discord o correo; opcional)</em></span><input type="text" name="contacto" maxlength="120" /></label>
+        </div>
+
+        <label class="sb-ok"><input type="checkbox" name="permiso" value="si" required />
+          <span>El clip/stream es mío o tengo permiso de quien lo grabó, y autorizo a Melee Dominicana a publicarlo con crédito. *</span></label>
+
+        <div class="sb-actions">
+          <button class="btn btn-gold" type="submit">Enviar ▶</button>
+          <p class="sb-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+
   </main>
 
   <footer class="footer">
@@ -226,6 +278,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="sections.js"></script>
+  <script src="submit.js"></script>
   <script type="importmap">{"imports":{
     "three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
     "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
