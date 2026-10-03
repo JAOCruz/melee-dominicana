@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Melee Dominicana — Super Smash Bros. Melee en RD</title>
+  <meta name="description" content="La escena competitiva de Super Smash Bros. Melee en República Dominicana: torneos, highlights, jugadores y todo lo que necesitas para jugar con Slippi." />
+  <meta property="og:title" content="Melee Dominicana" />
+  <meta property="og:description" content="Nuestra escena. Nuestra pasión. Nuestro juego. Torneos, highlights y comunidad de Melee en RD." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#07080f" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <nav class="nav">
+    <a href="#top" class="brand">
+      <img src="favicon.svg" alt="" width="20" height="20" />
+      <span>MELEE RD</span>
+    </a>
+    <div class="nav-links">
+      <a href="#lounge">Clips</a>
+      <a href="#torneos">Torneos</a>
+      <a href="#escena">Escena</a>
+      <a href="#hub">Empieza</a>
+      <a class="btn-yt" href="https://www.youtube.com/channel/UC3pTL3ikdL8_8REeSHtinSQ" target="_blank" rel="noopener">YouTube</a>
+    </div>
+  </nav>
+
+  <header id="top" class="hero">
+    <canvas id="flag" class="flag" width="48" height="36" aria-hidden="true"></canvas>
+    <p class="kicker">Super Smash Bros. Melee · República Dominicana</p>
+    <h1 class="title">
+      <span class="t1">MELEE</span>
+      <span class="t2">DOMINICANA</span>
+    </h1>
+    <p class="lede">La casa de la escena competitiva de Melee en RD. Sets completos, highlights de la semana, torneos locales y la vieja escuela contra la nueva.</p>
+    <div class="cta">
+      <a class="btn btn-gold" href="#lounge">▶ Ver clips</a>
+      <a class="btn btn-ghost" href="#hub">Empieza a jugar</a>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- LOUNGE -->
+    <section id="lounge" class="lounge" aria-labelledby="lounge-h">
+      <div class="wrap">
+        <h2 id="lounge-h" class="h2">El <span class="gold">lounge</span></h2>
+        <p class="sub">Pasa, siéntate y escoge una tele.</p>
+      </div>
+      <div class="room">
+        <div class="wall">
+          <div class="poster p1" aria-hidden="true"><span>RD</span></div>
+          <div class="poster p2" aria-hidden="true"><span>GG</span></div>
+        </div>
+        <div class="tvs" id="tvs"></div>
+        <div class="floor" aria-hidden="true"></div>
+      </div>
+      <div class="wrap center">
+        <a class="btn btn-red" href="https://www.youtube.com/channel/UC3pTL3ikdL8_8REeSHtinSQ" target="_blank" rel="noopener">Todo el canal en YouTube →</a>
+      </div>
+    </section>
+
+    <!-- TORNEOS -->
+    <section id="torneos" class="wrap section" aria-labelledby="torneos-h">
+      <h2 id="torneos-h" class="h2">Tor<span class="gold">neos</span></h2>
+      <div class="tourney">
+        <div class="tourney-main">
+          <p class="tag">Próximo torneo</p>
+          <h3>Por anunciar</h3>
+          <p>La próxima fecha se publica en start.gg y en el canal. Sigue el canal para enterarte primero, y trae tu control.</p>
+          <a class="btn btn-red" href="https://www.start.gg" target="_blank" rel="noopener">Ver en start.gg</a>
+        </div>
+        <div class="tourney-past">
+          <p class="tag">Anterior · Sábado 5 sep 2026</p>
+          <h3>Melee Dominicana <span class="gold">#1</span></h3>
+          <p>El primer torneo de la nueva era: doble eliminación y setups con Slippi.</p>
+          <ul class="sched">
+            <li><span>2v2</span> Doubles · 2:00 PM</li>
+            <li><span>1v1</span> Singles · 4:00 PM · Bo5 en Top 8</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESCENA -->
+    <section id="escena" class="band" aria-labelledby="escena-h">
+      <div class="wrap section">
+        <h2 id="escena-h" class="h2">La <span class="blue">escena</span></h2>
+        <div class="pillars">
+          <div class="pillar"><b>VS</b><h3>Weeklies y money matches</h3><p>Sesiones semanales, money matches y sets rankeados entre los mejores del país.</p></div>
+          <div class="pillar"><b>REC</b><h3>Todo queda grabado</h3><p>Cada set se graba con Slippi y los mejores momentos van directo al canal.</p></div>
+          <div class="pillar"><b>RD</b><h3>De RD pa'l mundo</h3><p>La vieja escuela y la nueva generación, construyendo la escena juntos.</p></div>
+        </div>
+
+        <h3 class="h3">Jugadores</h3>
+        <div class="roster" id="roster"></div>
+        <p class="note">¿Juegas Melee en RD y no sales aquí? Escríbenos por YouTube y te agregamos.</p>
+      </div>
+    </section>
+
+    <!-- HUB -->
+    <section id="hub" class="wrap section" aria-labelledby="hub-h">
+      <h2 id="hub-h" class="h2">Empieza a <span class="red">jugar</span></h2>
+      <p class="sub">Todo lo que la comunidad usa para jugar online, entrenar y montar setups.</p>
+      <div class="hub" id="hubgrid"></div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="stripe" aria-hidden="true"></div>
+    <p class="motto">Nuestra escena · Nuestra pasión · Nuestro juego</p>
+    <p class="links">
+      <a href="https://www.youtube.com/channel/UC3pTL3ikdL8_8REeSHtinSQ" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.start.gg" target="_blank" rel="noopener">start.gg</a>
+    </p>
+    <p class="fine">© 2026 Melee Dominicana · Sitio de fans, sin afiliación con Nintendo. Hecho por <a href="https://arcovaco.com" target="_blank" rel="noopener">Arcova</a>.</p>
+  </footer>
+
+  <dialog id="player" class="player" aria-label="Reproductor">
+    <button class="close" id="close" aria-label="Cerrar">✕</button>
+    <div class="frame" id="frame"></div>
+    <p class="caption" id="caption"></p>
+  </dialog>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
