@@ -276,8 +276,12 @@
     const list = $("#clipList");
     const clips = (window.MD && window.MD.clips) || [];
     clips.forEach((c, i) => {
-      const tv = document.createElement("button");
-      tv.type = "button"; tv.className = `lg-tv lg-tv--${c.tv || "left"}`; tv.dataset.i = i;
+      // La tele grande reproduce el set dentro de la misma tele (iframe de YouTube): es un div con
+      // role=button para que el iframe no quede dentro de un <button>.
+      const big = c.tv === "big";
+      const tv = document.createElement(big ? "div" : "button");
+      if (big) { tv.setAttribute("role", "button"); tv.tabIndex = 0; } else tv.type = "button";
+      tv.className = `lg-tv lg-tv--${c.tv || "left"}`; tv.dataset.i = i;
       tv.setAttribute("aria-label", `Ver: ${c.title}`);
       tv.innerHTML = `
         <span class="lg-tv__body">
@@ -285,13 +289,30 @@
             ${c.video
               ? `<video muted playsinline loop preload="none" poster="${esc(c.poster || "")}" width="384" height="288" aria-hidden="true"><source src="${esc(c.video)}" type="video/mp4" /></video>`
               : `<img src="https://i.ytimg.com/vi/${esc(c.id)}/${c.tv === "big" ? "hqdefault" : "mqdefault"}.jpg" alt="" loading="lazy" width="320" height="180" />`}
+            ${c.video ? `<span class="lg-vhs" aria-hidden="true"><b>PLAY ▶</b><i class="lg-vhs__tc">SP 0:00:00</i><span class="lg-vhs__track"></span></span>` : ""}
             <span class="lg-tv__scan"></span>
-            <span class="lg-tv__play"><i>▶</i> Ver clip</span>
+            <span class="lg-tv__play"><i>▶</i> ${big ? "Ver el set" : "Ver clip"}</span>
           </span>
           <span class="lg-tv__side"><i class="led"></i><i></i><i></i></span>
         </span>
         <span class="lg-tv__plate">${esc(c.tag)}</span>`;
-      tv.addEventListener("click", () => window.MD_openPlayer && window.MD_openPlayer(c));
+      const playInTv = () => {
+        if (tv.classList.contains("is-live")) return;
+        const screen = tv.querySelector(".lg-tv__screen");
+        const v = screen.querySelector("video"); if (v) v.pause();
+        screen.insertAdjacentHTML("beforeend", `<iframe class="lg-tv__live" src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(c.id)}?autoplay=1&rel=0&playsinline=1&start=${c.start || 0}" title="${esc(c.title)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen"></iframe><button type="button" class="lg-tv__off" aria-label="Apagar la tele">✕</button>`);
+        tv.classList.add("is-live"); tv.removeAttribute("role"); tv.removeAttribute("tabindex");
+        screen.querySelector(".lg-tv__off").addEventListener("click", (e) => {
+          e.stopPropagation();
+          screen.querySelectorAll(".lg-tv__live, .lg-tv__off").forEach((n) => n.remove());
+          tv.classList.remove("is-live"); tv.setAttribute("role", "button"); tv.tabIndex = 0;
+          if (v && visible && !reduced) { const pr = v.play(); if (pr && pr.catch) pr.catch(() => {}); }
+        });
+      };
+      if (big) {
+        tv.addEventListener("click", playInTv);
+        tv.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); playInTv(); } });
+      } else tv.addEventListener("click", () => window.MD_openPlayer && window.MD_openPlayer(c));
       if (c.tv === "big") { tv.addEventListener("pointerenter", () => { hype = true; }); tv.addEventListener("pointerleave", () => { hype = false; }); tv.addEventListener("focus", () => { hype = true; }); tv.addEventListener("blur", () => { hype = false; }); }
       tv.addEventListener("pointerenter", () => list && list.querySelectorAll("li").forEach((li) => li.classList.toggle("is-on", +li.dataset.i === i)));
       tv.addEventListener("pointerleave", () => list && list.querySelectorAll("li").forEach((li) => li.classList.remove("is-on")));
@@ -299,7 +320,7 @@
       if (list) {
         const li = document.createElement("li"); li.dataset.i = i;
         li.innerHTML = `<button type="button"><small>${esc(c.tag)}</small><b>${esc(c.title)}</b></button>`;
-        li.querySelector("button").addEventListener("click", () => window.MD_openPlayer && window.MD_openPlayer(c));
+        li.querySelector("button").addEventListener("click", () => { if (big) { tv.scrollIntoView({ block: "center", inline: "center", behavior: "smooth" }); playInTv(); } else if (window.MD_openPlayer) window.MD_openPlayer(c); });
         li.addEventListener("pointerenter", () => tv.classList.add("is-hot")); li.addEventListener("pointerleave", () => tv.classList.remove("is-hot"));
         list.appendChild(li);
       }
@@ -308,7 +329,13 @@
     // Loop de la capa fx a ~15 fps (pixel art a pasos), solo con el cuarto en pantalla
     const tick = (t) => { if (!visible) return; if (t - last > 66) { last = t; draw(t); } requestAnimationFrame(tick); };
     const videos = $$("video", tvs);
-    const playVideos = (on) => { if (reduced) return; videos.forEach((v) => { if (on) { if (v.preload === "none") v.preload = "auto"; const p = v.play(); if (p && p.catch) p.catch(() => {}); } else v.pause(); }); };
+    // Contador estilo VCR sobre el clip
+    videos.forEach((v) => {
+      const tc = v.parentElement.querySelector(".lg-vhs__tc"); if (!tc) return;
+      const pad = (n) => String(n).padStart(2, "0");
+      v.addEventListener("timeupdate", () => { const t = Math.floor(v.currentTime); tc.textContent = `SP 0:${pad(Math.floor(t / 60))}:${pad(t % 60)}`; });
+    });
+    const playVideos = (on) => { if (reduced) return; videos.forEach((v) => { if (on && v.closest(".is-live")) return; if (on) { if (v.preload === "none") v.preload = "auto"; const p = v.play(); if (p && p.catch) p.catch(() => {}); } else v.pause(); }); };
     new IntersectionObserver((en) => { const was = visible; visible = en[0].isIntersecting; if (visible && !was && !reduced) requestAnimationFrame(tick); playVideos(visible); }, { rootMargin: "80px" }).observe(scene);
     document.addEventListener("visibilitychange", () => playVideos(visible && document.visibilityState === "visible"));
 
