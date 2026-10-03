@@ -12,10 +12,27 @@
   const charName = (c) => CHARS[c] || c;
   const ordinal = (n) => `${n}º`;
 
-  // Icono de stock del personaje (public/stocks/<slug>.png, sacados de start.gg).
-  function portrait(c, size = "md") {
-    if (!c) return `<span class="rs-char rs-${size} rs-empty" title="Sin personaje reportado"><img src="stocks/random-character.png" alt="" /></span>`;
-    return `<img class="rs-char rs-${size}" src="stocks/${esc(c)}.png" alt="${esc(charName(c))}" title="${esc(charName(c))}" loading="lazy" width="32" height="32" />`;
+  // Icono de stock con el color (costume) del personaje: public/stocks/<PREFIJO><COLOR>.png
+  // (mismo set y mismo orden de colores que el dashboard de clips en Jarvis, src/lib/stockIcons.ts).
+  const STOCK = {
+    "captain-falcon": ["CPT", "DEF BLK RED WHT GRN BLU"], "donkey-kong": ["DKG", "DEF BLK RED BLU GRN"],
+    fox: ["FOX", "DEF RED BLU GRN"], "mr-game-and-watch": ["GNW", "DEF RED BLU GRN"], kirby: ["KIR", "DEF YLW BLU RED GRN WHT"],
+    bowser: ["BOW", "DEF RED BLU BLK"], link: ["LNK", "DEF RED BLU BLK WHT"], luigi: ["LUI", "DEF WHT BLU PNK"],
+    mario: ["MAR", "DEF YLW BLK BLU GRN"], marth: ["MRT", "DEF RED GRN BLK WHT"], mewtwo: ["MEW", "DEF RED BLU GRN"],
+    ness: ["NES", "DEF YLW BLU GRN"], peach: ["PEA", "DEF YLW WHT BLU GRN"], pikachu: ["PIK", "DEF RED BLU GRN"],
+    "ice-climbers": ["ICS", "DEF GRN ORA RED"], jigglypuff: ["PUF", "DEF RED BLU GRN YLW"], samus: ["SAM", "DEF PNK BLK GRN PRP"],
+    yoshi: ["YOS", "DEF RED BLU YLW PNK CYN"], zelda: ["ZLD", "DEF RED BLU GRN WHT"], sheik: ["SHK", "DEF RED BLU GRN WHT"],
+    falco: ["FAL", "DEF RED BLU GRN"], "young-link": ["YLK", "DEF RED BLU WHT BLK"], "dr-mario": ["DOC", "DEF RED BLU GRN BLK"],
+    roy: ["ROY", "DEF RED BLU GRN YLW"], pichu: ["PCH", "DEF RED BLU GRN"], ganondorf: ["GAN", "DEF RED BLU GRN PRP"],
+  };
+  const COLOR_ES = { DEF: "", BLK: "negro", RED: "rojo", WHT: "blanco", GRN: "verde", BLU: "azul", YLW: "amarillo", PNK: "rosado", CYN: "celeste", ORA: "naranja", PRP: "morado" };
+  function portrait(ch, size = "md") {
+    const c = ch && (ch.c || ch), k = ch && ch.k;
+    if (!c || !STOCK[c]) return `<img class="rs-char rs-${size} rs-empty" src="stocks/000000.png" alt="" title="Sin personaje reportado" />`;
+    const [pre, colors] = STOCK[c];
+    const color = colors.split(" ")[k || 0] || "DEF";
+    const title = charName(c) + (COLOR_ES[color] ? ` (${COLOR_ES[color]})` : "");
+    return `<img class="rs-char rs-${size}" src="stocks/${pre}${color}.png" alt="${esc(title)}" title="${esc(title)}" loading="lazy" width="24" height="24" />`;
   }
 
   const label = (e) => e.team || e.players[0].tag;
@@ -46,7 +63,7 @@
         ${portrait(e.chars[0], "xl")}
         <p class="rs-place">${ordinal(e.placement)}</p>
         <p class="rs-name">${nameHTML(e)}</p>
-        <p class="rs-rec">${e.wins}-${e.losses} en sets${e.chars[0] ? ` · ${esc(charName(e.chars[0]))}` : ""}</p>
+        <p class="rs-rec">${e.wins}-${e.losses} en sets${e.chars[0] ? ` · ${esc(charName(e.chars[0].c))}` : ""}</p>
         ${badges.length ? `<p class="rs-badges">${badges.map((b) => `<span>${esc(b)}</span>`).join("")}</p>` : ""}
         <span class="rs-block" aria-hidden="true">${e.placement}</span>
       </div>`;
@@ -69,7 +86,7 @@
       return `<li class="${won ? "win" : "loss"}">
         <span class="rs-wl">${won ? "Ganó" : "Perdió"}</span>
         <span class="rs-round">${esc(s.round)}</span>
-        <span class="rs-vs">vs ${portrait(opp.chars[0], "sm")} <b>${esc(label(opp))}</b> <em>${ordinal(opp.placement)}</em></span>
+        <span class="rs-vs">vs ${portrait(((s.games[0] && s.games[0].chars[oppId]) || [])[0] || opp.chars[0], "sm")} <b>${esc(label(opp))}</b> <em>${ordinal(opp.placement)}</em></span>
         <span class="rs-score">${score}</span>
         ${games ? `<span class="rs-games">${games}</span>` : ""}
       </li>`;

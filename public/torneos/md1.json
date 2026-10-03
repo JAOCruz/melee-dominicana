@@ -18,7 +18,10 @@
       }
      ],
      "chars": [
-      "marth"
+      {
+       "c": "marth",
+       "k": 1
+      }
      ],
      "wins": 5,
      "losses": 0
@@ -34,7 +37,10 @@
       }
      ],
      "chars": [
-      "falco"
+      {
+       "c": "falco",
+       "k": 3
+      }
      ],
      "wins": 4,
      "losses": 2
@@ -50,7 +56,10 @@
       }
      ],
      "chars": [
-      "falco"
+      {
+       "c": "falco",
+       "k": null
+      }
      ],
      "wins": 4,
      "losses": 2
@@ -66,9 +75,18 @@
       }
      ],
      "chars": [
-      "captain-falcon",
-      "marth",
-      "falco"
+      {
+       "c": "captain-falcon",
+       "k": null
+      },
+      {
+       "c": "marth",
+       "k": 3
+      },
+      {
+       "c": "falco",
+       "k": null
+      }
      ],
      "wins": 5,
      "losses": 2
@@ -84,8 +102,14 @@
       }
      ],
      "chars": [
-      "fox",
-      "falco"
+      {
+       "c": "fox",
+       "k": null
+      },
+      {
+       "c": "falco",
+       "k": null
+      }
      ],
      "wins": 4,
      "losses": 2
@@ -101,7 +125,10 @@
       }
      ],
      "chars": [
-      "captain-falcon"
+      {
+       "c": "captain-falcon",
+       "k": 1
+      }
      ],
      "wins": 2,
      "losses": 2
@@ -117,7 +144,10 @@
       }
      ],
      "chars": [
-      "jigglypuff"
+      {
+       "c": "jigglypuff",
+       "k": null
+      }
      ],
      "wins": 4,
      "losses": 2
@@ -133,7 +163,10 @@
       }
      ],
      "chars": [
-      "sheik"
+      {
+       "c": "sheik",
+       "k": null
+      }
      ],
      "wins": 2,
      "losses": 2
@@ -149,7 +182,10 @@
       }
      ],
      "chars": [
-      "sheik"
+      {
+       "c": "sheik",
+       "k": null
+      }
      ],
      "wins": 2,
      "losses": 2
@@ -165,7 +201,10 @@
       }
      ],
      "chars": [
-      "marth"
+      {
+       "c": "marth",
+       "k": 0
+      }
      ],
      "wins": 2,
      "losses": 2
@@ -181,7 +220,10 @@
       }
      ],
      "chars": [
-      "peach"
+      {
+       "c": "peach",
+       "k": 0
+      }
      ],
      "wins": 1,
      "losses": 2
@@ -197,7 +239,10 @@
       }
      ],
      "chars": [
-      "falco"
+      {
+       "c": "falco",
+       "k": 2
+      }
      ],
      "wins": 1,
      "losses": 2
@@ -213,7 +258,10 @@
       }
      ],
      "chars": [
-      "fox"
+      {
+       "c": "fox",
+       "k": 2
+      }
      ],
      "wins": 2,
      "losses": 2
@@ -229,7 +277,10 @@
       }
      ],
      "chars": [
-      "dr-mario"
+      {
+       "c": "dr-mario",
+       "k": null
+      }
      ],
      "wins": 2,
      "losses": 2
@@ -245,7 +296,10 @@
       }
      ],
      "chars": [
-      "captain-falcon"
+      {
+       "c": "captain-falcon",
+       "k": 2
+      }
      ],
      "wins": 1,
      "losses": 2
@@ -261,8 +315,14 @@
       }
      ],
      "chars": [
-      "fox",
-      "falco"
+      {
+       "c": "fox",
+       "k": null
+      },
+      {
+       "c": "falco",
+       "k": null
+      }
      ],
      "wins": 1,
      "losses": 2
@@ -306,8 +366,14 @@
       }
      ],
      "chars": [
-      "marth",
-      "luigi"
+      {
+       "c": "marth",
+       "k": null
+      },
+      {
+       "c": "luigi",
+       "k": null
+      }
      ],
      "wins": 0,
      "losses": 2
@@ -323,9 +389,18 @@
       }
      ],
      "chars": [
-      "falco",
-      "mario",
-      "jigglypuff"
+      {
+       "c": "falco",
+       "k": null
+      },
+      {
+       "c": "mario",
+       "k": null
+      },
+      {
+       "c": "jigglypuff",
+       "k": null
+      }
      ],
      "wins": 0,
      "losses": 2
@@ -341,7 +416,10 @@
       }
      ],
      "chars": [
-      "marth"
+      {
+       "c": "marth",
+       "k": null
+      }
      ],
      "wins": 0,
      "losses": 2
@@ -357,7 +435,10 @@
       }
      ],
      "chars": [
-      "marth"
+      {
+       "c": "marth",
+       "k": null
+      }
      ],
      "wins": 0,
      "losses": 2
@@ -379,10 +460,16 @@
        "stage": "Fountain of Dreams",
        "chars": {
         "24603558": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 1
+         }
         ],
         "24499797": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 3
+         }
         ]
        }
       },
@@ -391,10 +478,16 @@
        "stage": null,
        "chars": {
         "24499797": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 3
+         }
         ],
         "24603558": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 1
+         }
         ]
        }
       },
@@ -403,10 +496,16 @@
        "stage": null,
        "chars": {
         "24499797": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 3
+         }
         ],
         "24603558": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 1
+         }
         ]
        }
       },
@@ -415,10 +514,16 @@
        "stage": null,
        "chars": {
         "24499797": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 3
+         }
         ],
         "24603558": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 1
+         }
         ]
        }
       },
@@ -427,10 +532,16 @@
        "stage": null,
        "chars": {
         "24499797": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 3
+         }
         ],
         "24603558": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 1
+         }
         ]
        }
       }
@@ -451,10 +562,16 @@
        "stage": "Yoshi's Story",
        "chars": {
         "24603558": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 1
+         }
         ],
         "24499797": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 3
+         }
         ]
        }
       },
@@ -463,10 +580,16 @@
        "stage": "Dream Land",
        "chars": {
         "24603558": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 1
+         }
         ],
         "24499797": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 3
+         }
         ]
        }
       },
@@ -475,10 +598,16 @@
        "stage": "Dream Land",
        "chars": {
         "24603558": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 1
+         }
         ],
         "24499797": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 3
+         }
         ]
        }
       },
@@ -487,10 +616,16 @@
        "stage": null,
        "chars": {
         "24499797": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 3
+         }
         ],
         "24603558": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 1
+         }
         ]
        }
       }
@@ -538,10 +673,16 @@
        "stage": "Yoshi's Story",
        "chars": {
         "24501367": [
-         "falco"
+         {
+          "c": "falco",
+          "k": null
+         }
         ],
         "24609207": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 3
+         }
         ]
        }
       },
@@ -550,10 +691,16 @@
        "stage": "Final Destination",
        "chars": {
         "24501367": [
-         "falco"
+         {
+          "c": "falco",
+          "k": null
+         }
         ],
         "24609207": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 3
+         }
         ]
        }
       },
@@ -562,10 +709,16 @@
        "stage": "Final Destination",
        "chars": {
         "24501367": [
-         "falco"
+         {
+          "c": "falco",
+          "k": null
+         }
         ],
         "24609207": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 3
+         }
         ]
        }
       },
@@ -574,10 +727,16 @@
        "stage": "Dream Land",
        "chars": {
         "24501367": [
-         "falco"
+         {
+          "c": "falco",
+          "k": null
+         }
         ],
         "24609207": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": null
+         }
         ]
        }
       }
@@ -652,10 +811,16 @@
        "stage": "Battlefield",
        "chars": {
         "24596178": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": 0
+         }
         ],
         "24609207": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 3
+         }
         ]
        }
       },
@@ -664,10 +829,16 @@
        "stage": null,
        "chars": {
         "24596178": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": 0
+         }
         ],
         "24609207": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 3
+         }
         ]
        }
       },
@@ -676,10 +847,16 @@
        "stage": null,
        "chars": {
         "24596178": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": 0
+         }
         ],
         "24609207": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 3
+         }
         ]
        }
       }
@@ -700,10 +877,16 @@
        "stage": "Battlefield",
        "chars": {
         "24499378": [
-         "fox"
+         {
+          "c": "fox",
+          "k": null
+         }
         ],
         "24594975": [
-         "sheik"
+         {
+          "c": "sheik",
+          "k": null
+         }
         ]
        }
       },
@@ -712,10 +895,16 @@
        "stage": null,
        "chars": {
         "24499378": [
-         "fox"
+         {
+          "c": "fox",
+          "k": null
+         }
         ],
         "24594975": [
-         "sheik"
+         {
+          "c": "sheik",
+          "k": null
+         }
         ]
        }
       },
@@ -724,10 +913,16 @@
        "stage": null,
        "chars": {
         "24499378": [
-         "fox"
+         {
+          "c": "fox",
+          "k": null
+         }
         ],
         "24594975": [
-         "sheik"
+         {
+          "c": "sheik",
+          "k": null
+         }
         ]
        }
       }
@@ -748,10 +943,16 @@
        "stage": "Dream Land",
        "chars": {
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ],
         "24609207": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": null
+         }
         ]
        }
       },
@@ -760,10 +961,16 @@
        "stage": "Battlefield",
        "chars": {
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ],
         "24609207": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 3
+         }
         ]
        }
       },
@@ -772,10 +979,16 @@
        "stage": "Battlefield",
        "chars": {
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ],
         "24609207": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 3
+         }
         ]
        }
       },
@@ -784,10 +997,16 @@
        "stage": "Pokémon Stadium",
        "chars": {
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ],
         "24609207": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 3
+         }
         ]
        }
       },
@@ -796,10 +1015,16 @@
        "stage": "Fountain of Dreams",
        "chars": {
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ],
         "24609207": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 3
+         }
         ]
        }
       }
@@ -820,10 +1045,16 @@
        "stage": "Fountain of Dreams",
        "chars": {
         "24603558": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 1
+         }
         ],
         "24594975": [
-         "sheik"
+         {
+          "c": "sheik",
+          "k": null
+         }
         ]
        }
       },
@@ -832,10 +1063,16 @@
        "stage": "Battlefield",
        "chars": {
         "24603558": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 1
+         }
         ],
         "24594975": [
-         "sheik"
+         {
+          "c": "sheik",
+          "k": null
+         }
         ]
        }
       },
@@ -844,10 +1081,16 @@
        "stage": "Fountain of Dreams",
        "chars": {
         "24603558": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 1
+         }
         ],
         "24594975": [
-         "sheik"
+         {
+          "c": "sheik",
+          "k": null
+         }
         ]
        }
       }
@@ -868,10 +1111,16 @@
        "stage": "Battlefield",
        "chars": {
         "24596178": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": 1
+         }
         ],
         "24503019": [
-         "peach"
+         {
+          "c": "peach",
+          "k": 0
+         }
         ]
        }
       },
@@ -880,10 +1129,16 @@
        "stage": "Dream Land",
        "chars": {
         "24596178": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": 1
+         }
         ],
         "24503019": [
-         "peach"
+         {
+          "c": "peach",
+          "k": 0
+         }
         ]
        }
       },
@@ -892,10 +1147,16 @@
        "stage": "Dream Land",
        "chars": {
         "24596178": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": 3
+         }
         ],
         "24503019": [
-         "peach"
+         {
+          "c": "peach",
+          "k": 0
+         }
         ]
        }
       }
@@ -985,10 +1246,16 @@
        "stage": "Battlefield",
        "chars": {
         "24503019": [
-         "peach"
+         {
+          "c": "peach",
+          "k": 0
+         }
         ],
         "24499378": [
-         "fox"
+         {
+          "c": "fox",
+          "k": null
+         }
         ]
        }
       },
@@ -997,10 +1264,16 @@
        "stage": "Pokémon Stadium",
        "chars": {
         "24503019": [
-         "peach"
+         {
+          "c": "peach",
+          "k": 0
+         }
         ],
         "24499378": [
-         "fox"
+         {
+          "c": "fox",
+          "k": null
+         }
         ]
        }
       },
@@ -1009,10 +1282,16 @@
        "stage": "Dream Land",
        "chars": {
         "24503019": [
-         "peach"
+         {
+          "c": "peach",
+          "k": 0
+         }
         ],
         "24499378": [
-         "fox"
+         {
+          "c": "fox",
+          "k": null
+         }
         ]
        }
       },
@@ -1021,10 +1300,16 @@
        "stage": "Fountain of Dreams",
        "chars": {
         "24503019": [
-         "peach"
+         {
+          "c": "peach",
+          "k": 0
+         }
         ],
         "24499378": [
-         "fox"
+         {
+          "c": "fox",
+          "k": null
+         }
         ]
        }
       }
@@ -1072,10 +1357,16 @@
        "stage": "Battlefield",
        "chars": {
         "24589209": [
-         "sheik"
+         {
+          "c": "sheik",
+          "k": null
+         }
         ],
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ]
        }
       },
@@ -1084,10 +1375,16 @@
        "stage": "Yoshi's Story",
        "chars": {
         "24589209": [
-         "sheik"
+         {
+          "c": "sheik",
+          "k": null
+         }
         ],
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ]
        }
       },
@@ -1096,10 +1393,16 @@
        "stage": "Battlefield",
        "chars": {
         "24589209": [
-         "sheik"
+         {
+          "c": "sheik",
+          "k": null
+         }
         ],
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ]
        }
       }
@@ -1120,10 +1423,16 @@
        "stage": "Yoshi's Story",
        "chars": {
         "24600844": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 2
+         }
         ],
         "24609207": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": null
+         }
         ]
        }
       },
@@ -1132,10 +1441,16 @@
        "stage": "Yoshi's Story",
        "chars": {
         "24609207": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": null
+         }
         ],
         "24600844": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 2
+         }
         ]
        }
       },
@@ -1144,10 +1459,16 @@
        "stage": "Battlefield",
        "chars": {
         "24600844": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 2
+         }
         ],
         "24609207": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": null
+         }
         ]
        }
       }
@@ -1168,10 +1489,16 @@
        "stage": "Fountain of Dreams",
        "chars": {
         "24499378": [
-         "falco"
+         {
+          "c": "falco",
+          "k": null
+         }
         ],
         "24609222": [
-         "fox"
+         {
+          "c": "fox",
+          "k": null
+         }
         ]
        }
       },
@@ -1180,10 +1507,16 @@
        "stage": "Dream Land",
        "chars": {
         "24499378": [
-         "falco"
+         {
+          "c": "falco",
+          "k": null
+         }
         ],
         "24609222": [
-         "fox"
+         {
+          "c": "fox",
+          "k": null
+         }
         ]
        }
       },
@@ -1192,10 +1525,16 @@
        "stage": "Yoshi's Story",
        "chars": {
         "24499378": [
-         "falco"
+         {
+          "c": "falco",
+          "k": null
+         }
         ],
         "24609222": [
-         "fox"
+         {
+          "c": "fox",
+          "k": null
+         }
         ]
        }
       },
@@ -1204,10 +1543,16 @@
        "stage": "Pokémon Stadium",
        "chars": {
         "24499378": [
-         "falco"
+         {
+          "c": "falco",
+          "k": null
+         }
         ],
         "24609222": [
-         "fox"
+         {
+          "c": "fox",
+          "k": null
+         }
         ]
        }
       }
@@ -1228,10 +1573,16 @@
        "stage": "Fountain of Dreams",
        "chars": {
         "24506304": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 0
+         }
         ],
         "24601288": [
-         "dr-mario"
+         {
+          "c": "dr-mario",
+          "k": null
+         }
         ]
        }
       },
@@ -1240,10 +1591,16 @@
        "stage": "Battlefield",
        "chars": {
         "24506304": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 0
+         }
         ],
         "24601288": [
-         "dr-mario"
+         {
+          "c": "dr-mario",
+          "k": null
+         }
         ]
        }
       },
@@ -1252,10 +1609,16 @@
        "stage": "Dream Land",
        "chars": {
         "24506304": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 0
+         }
         ],
         "24601288": [
-         "dr-mario"
+         {
+          "c": "dr-mario",
+          "k": null
+         }
         ]
        }
       },
@@ -1264,10 +1627,16 @@
        "stage": "Fountain of Dreams",
        "chars": {
         "24506304": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 0
+         }
         ],
         "24601288": [
-         "dr-mario"
+         {
+          "c": "dr-mario",
+          "k": null
+         }
         ]
        }
       },
@@ -1276,10 +1645,16 @@
        "stage": "Pokémon Stadium",
        "chars": {
         "24506304": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 0
+         }
         ],
         "24601288": [
-         "dr-mario"
+         {
+          "c": "dr-mario",
+          "k": null
+         }
         ]
        }
       }
@@ -1300,10 +1675,16 @@
        "stage": "Fountain of Dreams",
        "chars": {
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ],
         "24506291": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": 2
+         }
         ]
        }
       },
@@ -1312,10 +1693,16 @@
        "stage": "Yoshi's Story",
        "chars": {
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ],
         "24506291": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": 2
+         }
         ]
        }
       },
@@ -1324,10 +1711,16 @@
        "stage": "Battlefield",
        "chars": {
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ],
         "24506291": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": 2
+         }
         ]
        }
       }
@@ -1348,10 +1741,16 @@
        "stage": "Battlefield",
        "chars": {
         "24609207": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": null
+         }
         ],
         "24512671": [
-         "fox"
+         {
+          "c": "fox",
+          "k": 2
+         }
         ]
        }
       },
@@ -1360,10 +1759,16 @@
        "stage": "Pokémon Stadium",
        "chars": {
         "24609207": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": null
+         }
         ],
         "24512671": [
-         "fox"
+         {
+          "c": "fox",
+          "k": 2
+         }
         ]
        }
       },
@@ -1372,10 +1777,16 @@
        "stage": "Final Destination",
        "chars": {
         "24609207": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": null
+         }
         ],
         "24512671": [
-         "fox"
+         {
+          "c": "fox",
+          "k": 2
+         }
         ]
        }
       }
@@ -1396,10 +1807,16 @@
        "stage": "Battlefield",
        "chars": {
         "24603558": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 1
+         }
         ],
         "24512671": [
-         "fox"
+         {
+          "c": "fox",
+          "k": 2
+         }
         ]
        }
       },
@@ -1408,10 +1825,16 @@
        "stage": "Final Destination",
        "chars": {
         "24603558": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 1
+         }
         ],
         "24512671": [
-         "fox"
+         {
+          "c": "fox",
+          "k": 2
+         }
         ]
        }
       },
@@ -1420,10 +1843,16 @@
        "stage": null,
        "chars": {
         "24512671": [
-         "fox"
+         {
+          "c": "fox",
+          "k": 2
+         }
         ],
         "24603558": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 1
+         }
         ]
        }
       }
@@ -1444,10 +1873,16 @@
        "stage": "Battlefield",
        "chars": {
         "24609207": [
-         "falco"
+         {
+          "c": "falco",
+          "k": null
+         }
         ],
         "24594975": [
-         "sheik"
+         {
+          "c": "sheik",
+          "k": null
+         }
         ]
        }
       },
@@ -1456,10 +1891,16 @@
        "stage": "Battlefield",
        "chars": {
         "24609207": [
-         "falco"
+         {
+          "c": "falco",
+          "k": null
+         }
         ],
         "24594975": [
-         "sheik"
+         {
+          "c": "sheik",
+          "k": null
+         }
         ]
        }
       },
@@ -1468,10 +1909,16 @@
        "stage": "Dream Land",
        "chars": {
         "24609207": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": null
+         }
         ],
         "24594975": [
-         "sheik"
+         {
+          "c": "sheik",
+          "k": null
+         }
         ]
        }
       }
@@ -1492,10 +1939,16 @@
        "stage": "Fountain of Dreams",
        "chars": {
         "24596178": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": 1
+         }
         ],
         "24506291": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": 2
+         }
         ]
        }
       },
@@ -1504,10 +1957,16 @@
        "stage": "Pokémon Stadium",
        "chars": {
         "24596178": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": 1
+         }
         ],
         "24506291": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": 2
+         }
         ]
        }
       },
@@ -1516,10 +1975,16 @@
        "stage": "Dream Land",
        "chars": {
         "24596178": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": 1
+         }
         ],
         "24506291": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": 2
+         }
         ]
        }
       }
@@ -1540,10 +2005,16 @@
        "stage": "Battlefield",
        "chars": {
         "24503019": [
-         "peach"
+         {
+          "c": "peach",
+          "k": 0
+         }
         ],
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ]
        }
       },
@@ -1552,10 +2023,16 @@
        "stage": "Battlefield",
        "chars": {
         "24503019": [
-         "peach"
+         {
+          "c": "peach",
+          "k": 0
+         }
         ],
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ]
        }
       },
@@ -1564,10 +2041,16 @@
        "stage": "Battlefield",
        "chars": {
         "24503019": [
-         "peach"
+         {
+          "c": "peach",
+          "k": 0
+         }
         ],
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ]
        }
       }
@@ -1588,10 +2071,16 @@
        "stage": "Pokémon Stadium",
        "chars": {
         "24499797": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 3
+         }
         ],
         "24601288": [
-         "dr-mario"
+         {
+          "c": "dr-mario",
+          "k": null
+         }
         ]
        }
       },
@@ -1600,10 +2089,16 @@
        "stage": "Final Destination",
        "chars": {
         "24499797": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 3
+         }
         ],
         "24601288": [
-         "dr-mario"
+         {
+          "c": "dr-mario",
+          "k": null
+         }
         ]
        }
       },
@@ -1612,10 +2107,16 @@
        "stage": "Final Destination",
        "chars": {
         "24499797": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 3
+         }
         ],
         "24601288": [
-         "dr-mario"
+         {
+          "c": "dr-mario",
+          "k": null
+         }
         ]
        }
       }
@@ -1636,10 +2137,16 @@
        "stage": "Battlefield",
        "chars": {
         "24600844": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 2
+         }
         ],
         "24506304": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 0
+         }
         ]
        }
       },
@@ -1648,10 +2155,16 @@
        "stage": "Fountain of Dreams",
        "chars": {
         "24600844": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 2
+         }
         ],
         "24506304": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 0
+         }
         ]
        }
       },
@@ -1660,10 +2173,16 @@
        "stage": "Battlefield",
        "chars": {
         "24600844": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 2
+         }
         ],
         "24506304": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 0
+         }
         ]
        }
       },
@@ -1672,10 +2191,16 @@
        "stage": "Pokémon Stadium",
        "chars": {
         "24600844": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 2
+         }
         ],
         "24506304": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 0
+         }
         ]
        }
       }
@@ -1696,10 +2221,16 @@
        "stage": "Dream Land",
        "chars": {
         "24501367": [
-         "falco"
+         {
+          "c": "falco",
+          "k": null
+         }
         ],
         "24609222": [
-         "fox"
+         {
+          "c": "fox",
+          "k": null
+         }
         ]
        }
       },
@@ -1708,10 +2239,16 @@
        "stage": "Fountain of Dreams",
        "chars": {
         "24501367": [
-         "falco"
+         {
+          "c": "falco",
+          "k": null
+         }
         ],
         "24609222": [
-         "fox"
+         {
+          "c": "fox",
+          "k": null
+         }
         ]
        }
       },
@@ -1720,10 +2257,16 @@
        "stage": "Final Destination",
        "chars": {
         "24501367": [
-         "falco"
+         {
+          "c": "falco",
+          "k": null
+         }
         ],
         "24609222": [
-         "fox"
+         {
+          "c": "fox",
+          "k": null
+         }
         ]
        }
       }
@@ -1755,10 +2298,16 @@
        "stage": "Dream Land",
        "chars": {
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ],
         "24513283": [
-         "falco"
+         {
+          "c": "falco",
+          "k": null
+         }
         ]
        }
       },
@@ -1767,10 +2316,16 @@
        "stage": "Pokémon Stadium",
        "chars": {
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ],
         "24513283": [
-         "mario"
+         {
+          "c": "mario",
+          "k": null
+         }
         ]
        }
       },
@@ -1779,10 +2334,16 @@
        "stage": "Pokémon Stadium",
        "chars": {
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ],
         "24513283": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ]
        }
       }
@@ -1803,10 +2364,16 @@
        "stage": "Battlefield",
        "chars": {
         "24609207": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": null
+         }
         ],
         "24544786": [
-         "marth"
+         {
+          "c": "marth",
+          "k": null
+         }
         ]
        }
       },
@@ -1815,10 +2382,16 @@
        "stage": "Yoshi's Story",
        "chars": {
         "24609207": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": null
+         }
         ],
         "24544786": [
-         "marth"
+         {
+          "c": "marth",
+          "k": null
+         }
         ]
        }
       },
@@ -1827,10 +2400,16 @@
        "stage": "Final Destination",
        "chars": {
         "24609207": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": null
+         }
         ],
         "24544786": [
-         "marth"
+         {
+          "c": "marth",
+          "k": null
+         }
         ]
        }
       },
@@ -1839,10 +2418,16 @@
        "stage": "Final Destination",
        "chars": {
         "24609207": [
-         "captain-falcon"
+         {
+          "c": "captain-falcon",
+          "k": null
+         }
         ],
         "24544786": [
-         "marth"
+         {
+          "c": "marth",
+          "k": null
+         }
         ]
        }
       }
@@ -1896,10 +2481,16 @@
        "stage": "Fountain of Dreams",
        "chars": {
         "24601288": [
-         "dr-mario"
+         {
+          "c": "dr-mario",
+          "k": null
+         }
         ],
         "24525790": [
-         "marth"
+         {
+          "c": "marth",
+          "k": null
+         }
         ]
        }
       },
@@ -1908,10 +2499,16 @@
        "stage": "Final Destination",
        "chars": {
         "24601288": [
-         "dr-mario"
+         {
+          "c": "dr-mario",
+          "k": null
+         }
         ],
         "24525790": [
-         "marth"
+         {
+          "c": "marth",
+          "k": null
+         }
         ]
        }
       },
@@ -1920,10 +2517,16 @@
        "stage": "Yoshi's Story",
        "chars": {
         "24601288": [
-         "dr-mario"
+         {
+          "c": "dr-mario",
+          "k": null
+         }
         ],
         "24525790": [
-         "luigi"
+         {
+          "c": "luigi",
+          "k": null
+         }
         ]
        }
       }
@@ -1966,10 +2569,16 @@
        "stage": "Battlefield",
        "chars": {
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ],
         "24525790": [
-         "marth"
+         {
+          "c": "marth",
+          "k": null
+         }
         ]
        }
       },
@@ -1978,10 +2587,16 @@
        "stage": "Pokémon Stadium",
        "chars": {
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ],
         "24525790": [
-         "luigi"
+         {
+          "c": "luigi",
+          "k": null
+         }
         ]
        }
       },
@@ -1990,10 +2605,16 @@
        "stage": "Final Destination",
        "chars": {
         "24499950": [
-         "jigglypuff"
+         {
+          "c": "jigglypuff",
+          "k": null
+         }
         ],
         "24525790": [
-         "marth"
+         {
+          "c": "marth",
+          "k": null
+         }
         ]
        }
       }
@@ -2025,10 +2646,16 @@
        "stage": "Yoshi's Story",
        "chars": {
         "24609222": [
-         "falco"
+         {
+          "c": "falco",
+          "k": null
+         }
         ],
         "24544786": [
-         "marth"
+         {
+          "c": "marth",
+          "k": null
+         }
         ]
        }
       },
@@ -2037,10 +2664,16 @@
        "stage": "Yoshi's Story",
        "chars": {
         "24609222": [
-         "falco"
+         {
+          "c": "falco",
+          "k": null
+         }
         ],
         "24544786": [
-         "marth"
+         {
+          "c": "marth",
+          "k": null
+         }
         ]
        }
       },
@@ -2049,10 +2682,16 @@
        "stage": "Dream Land",
        "chars": {
         "24609222": [
-         "falco"
+         {
+          "c": "falco",
+          "k": null
+         }
         ],
         "24544786": [
-         "marth"
+         {
+          "c": "marth",
+          "k": null
+         }
         ]
        }
       },
@@ -2061,10 +2700,16 @@
        "stage": "Pokémon Stadium",
        "chars": {
         "24609222": [
-         "fox"
+         {
+          "c": "fox",
+          "k": null
+         }
         ],
         "24544786": [
-         "marth"
+         {
+          "c": "marth",
+          "k": null
+         }
         ]
        }
       }
@@ -2085,10 +2730,16 @@
        "stage": "Dream Land",
        "chars": {
         "24589209": [
-         "sheik"
+         {
+          "c": "sheik",
+          "k": null
+         }
         ],
         "24500421": [
-         "marth"
+         {
+          "c": "marth",
+          "k": null
+         }
         ]
        }
       },
@@ -2097,10 +2748,16 @@
        "stage": "Final Destination",
        "chars": {
         "24589209": [
-         "sheik"
+         {
+          "c": "sheik",
+          "k": null
+         }
         ],
         "24500421": [
-         "marth"
+         {
+          "c": "marth",
+          "k": null
+         }
         ]
        }
       },
@@ -2109,10 +2766,16 @@
        "stage": "Final Destination",
        "chars": {
         "24589209": [
-         "sheik"
+         {
+          "c": "sheik",
+          "k": null
+         }
         ],
         "24500421": [
-         "marth"
+         {
+          "c": "marth",
+          "k": null
+         }
         ]
        }
       }
@@ -2140,7 +2803,10 @@
       }
      ],
      "chars": [
-      "falco"
+      {
+       "c": "falco",
+       "k": 3
+      }
      ],
      "wins": 3,
      "losses": 0
@@ -2160,8 +2826,14 @@
       }
      ],
      "chars": [
-      "falco",
-      "marth"
+      {
+       "c": "falco",
+       "k": 2
+      },
+      {
+       "c": "marth",
+       "k": 0
+      }
      ],
      "wins": 2,
      "losses": 2
@@ -2219,10 +2891,16 @@
        "stage": "Battlefield",
        "chars": {
         "24505221": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 3
+         }
         ],
         "24606507": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 2
+         }
         ]
        }
       },
@@ -2231,10 +2909,16 @@
        "stage": "Final Destination",
        "chars": {
         "24505221": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 3
+         }
         ],
         "24606507": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 0
+         }
         ]
        }
       },
@@ -2243,10 +2927,16 @@
        "stage": null,
        "chars": {
         "24505221": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 3
+         }
         ],
         "24606507": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 0
+         }
         ]
        }
       }
@@ -2267,10 +2957,16 @@
        "stage": "Battlefield",
        "chars": {
         "24505221": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 3
+         }
         ],
         "24606507": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 2
+         }
         ]
        }
       },
@@ -2279,10 +2975,16 @@
        "stage": "Final Destination",
        "chars": {
         "24505221": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 3
+         }
         ],
         "24606507": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 2
+         }
         ]
        }
       },
@@ -2291,10 +2993,16 @@
        "stage": "Final Destination",
        "chars": {
         "24505221": [
-         "falco"
+         {
+          "c": "falco",
+          "k": 3
+         }
         ],
         "24606507": [
-         "marth"
+         {
+          "c": "marth",
+          "k": 0
+         }
         ]
        }
       }
