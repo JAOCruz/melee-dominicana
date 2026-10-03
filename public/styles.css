@@ -147,7 +147,7 @@ a { color: inherit; }
   .hero.has-3d { min-height: 0; padding: 0 16px 40px; align-items: center; justify-content: flex-end; }
   .hero.has-3d::before { background: linear-gradient(0deg, rgba(7, 8, 15, .96) 0, rgba(7, 8, 15, .78) 34%, rgba(7, 8, 15, 0) 62%); }
   .hero.has-3d .hero-copy { align-items: center; text-align: center; max-width: 480px; }
-  .hero.has-3d .flag { width: 84px; margin-bottom: 14px; }
+  .hero.has-3d .flag { display: none; }   /* en móvil la bandera ya está en el diorama 3D */
   .hero.has-3d .kicker { font-size: 10px; margin-bottom: 14px; }
   .hero.has-3d .t1 { font-size: clamp(36px, 11vw, 48px); }
   .hero.has-3d .t2 { font-size: clamp(18px, 5.2vw, 24px); }

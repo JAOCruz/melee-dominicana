@@ -35,7 +35,6 @@ const motion = hasGsap && !reduced;
 const navH = () => (nav ? nav.offsetHeight : 0);
 const BG = 0x07080f;
 const MODEL_URL = new URLSearchParams(location.search).get('model') || ST.model || 'models/falcon.glb'; // ?model= solo para QA
-const CLIPS = (window.MD && window.MD.clips || []).map((c) => c.id);
 const PUNCH_T = 0.86;   // segundo del clip SpecialN en que sale el puño
 const HOLD_T = 1.12;    // se congela con el brazo extendido
 const P_FEED = 0.26;    // la CRT pasa de clips a la señal en vivo del Falcon
@@ -61,6 +60,25 @@ function carpetTexture() {
   g.fillStyle = '#3a2a40'; g.fillRect(2, 4, 4, 1); g.fillRect(4, 2, 1, 4); g.fillRect(10, 12, 4, 1); g.fillRect(12, 10, 1, 4);
   g.fillStyle = '#2e2232'; g.fillRect(0, 0, 1, 16);
   const t = new THREE.CanvasTexture(c); t.magFilter = t.minFilter = THREE.NearestFilter; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(26, 26); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+function wallTexture() {
+  const c = document.createElement('canvas'); c.width = 32; c.height = 32; const g = c.getContext('2d');
+  g.fillStyle = '#3d2a3c'; g.fillRect(0, 0, 32, 32);
+  g.fillStyle = '#44304a'; for (let y = 0; y < 32; y += 8) { g.fillRect(0, y, 32, 1); g.fillRect((y / 8) % 2 ? 16 : 0, y, 1, 8); }
+  g.fillStyle = '#36253a'; for (let i = 0; i < 24; i++) g.fillRect((i * 7) % 32, (i * 11) % 32, 1, 1);
+  const t = new THREE.CanvasTexture(c); t.magFilter = t.minFilter = THREE.NearestFilter; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(18, 8); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+function posterTexture() {
+  const c = document.createElement('canvas'); c.width = 36; c.height = 50; const g = c.getContext('2d');
+  g.fillStyle = '#0c1733'; g.fillRect(0, 0, 36, 50);
+  g.fillStyle = '#1d4ed8'; g.fillRect(0, 0, 18, 20); g.fillRect(18, 20, 18, 20);
+  g.fillStyle = '#e11d48'; g.fillRect(18, 0, 18, 20); g.fillRect(0, 20, 18, 20);
+  g.fillStyle = '#f3f4f6'; g.fillRect(17, 0, 2, 40); g.fillRect(0, 19, 36, 2);
+  g.fillStyle = '#fbbf24'; [[14, 8, 8, 2], [12, 10, 12, 2], [10, 12, 16, 2], [16, 14, 4, 4]].forEach(([x, y, w, h]) => g.fillRect(x, y, w, h));   // ave
+  g.fillStyle = '#07080f'; g.fillRect(0, 40, 36, 10);
+  g.fillStyle = '#fbbf24'; [[3, 43], [7, 43], [11, 43], [15, 43], [19, 43], [25, 43], [29, 43]].forEach(([x, y]) => g.fillRect(x, y, 3, 4));   // "letras" pixel
+  g.fillStyle = '#f3f4f6'; g.fillRect(25, 44, 1, 2); g.fillRect(31, 44, 1, 2);
+  const t = new THREE.CanvasTexture(c); t.magFilter = t.minFilter = THREE.NearestFilter; t.colorSpace = THREE.SRGBColorSpace; return t;
 }
 function noiseTexture() {
   const n = 64, d = new Uint8Array(n * n * 4);
@@ -151,7 +169,19 @@ function main() {
   // suelo (moqueta) y pared
   const floor = new THREE.Mesh(new THREE.PlaneGeometry(600, 600), new THREE.MeshStandardMaterial({ map: carpetTexture(), roughness: 1 }));
   floor.rotation.x = -Math.PI / 2; floor.receiveShadow = !mobile; dio.add(floor);
-  const wall = box(600, 260, 4, mat(0x3d2a3c, { roughness: 1 }), 0, 130, -70); wall.castShadow = false;
+  const wall = box(600, 260, 4, new THREE.MeshStandardMaterial({ map: wallTexture(), roughness: 1 }), 0, 130, -70); wall.castShadow = false;
+  // glow de los neones sobre la pared (planos aditivos baratos)
+  const glowMat = (c) => new THREE.ShaderMaterial({ uniforms: { uColor: { value: new THREE.Color(c) } }, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+    vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
+    fragmentShader: 'varying vec2 vUv; uniform vec3 uColor; void main(){ float d = abs(vUv.x - 0.5) * 2.0; float a = exp(-d * d * 5.0) * 0.55 * smoothstep(0.0, 0.08, vUv.y) * smoothstep(1.0, 0.9, vUv.y); gl_FragColor = vec4(uColor * a, a); }' });
+  const glowB = new THREE.Mesh(new THREE.PlaneGeometry(90, 190), glowMat(0x3b82f6)); glowB.position.set(-118, 125, -67.6); dio.add(glowB);
+  const glowR = new THREE.Mesh(new THREE.PlaneGeometry(90, 190), glowMat(0xe11d48)); glowR.position.set(118, 125, -67.6); dio.add(glowR);
+  // póster del torneo (textura canvas propia) con marco
+  box(40, 54, 1.2, mat(0x15151c), 62, 148, -67.2).castShadow = false;
+  const poster = new THREE.Mesh(new THREE.PlaneGeometry(36, 50), new THREE.MeshLambertMaterial({ map: posterTexture() })); poster.position.set(62, 148, -66.5); dio.add(poster);
+  // cajas de juegos apiladas y un vaso
+  [0, 1, 2].forEach((i) => box(14, 1.6, 19, mat([0x1d4ed8, 0xe11d48, 0x312e81][i]), -62 + i * 0.8, TABLE_Y + 0.8 + i * 1.7, -14 + i * 0.6));
+  cyl(2.4, 2.0, 7, mat(0xe5e7eb, { roughness: 0.4 }), 64, TABLE_Y + 3.5, 24); cyl(2.1, 2.1, 0.4, mat(0x3f3f46), 64, TABLE_Y + 7.1, 24);
   box(600, 6, 6, mat(0x2b1e2c), 0, 3, -68);                                   // zócalo
   // neones (tubos + luces)
   const neonM = (c) => new THREE.MeshBasicMaterial({ color: c });
@@ -216,29 +246,52 @@ function main() {
   });
   const screen = new THREE.Mesh(scrGeo, screenMat); screen.position.set(0, 25, 23.6); crt.add(screen);
   const SCREEN_CENTER = new THREE.Vector3(); // se calcula en el loop (world)
-  // consola cúbica morada (sin logos)
-  const con = new THREE.Group(); con.position.set(46, TABLE_Y, 16); dio.add(con);
-  box(17, 12, 17, mat(0x5b21b6, { roughness: 0.6 }), 0, 6, 0, con);
-  box(17.4, 1.2, 17.4, mat(0x7c3aed, { roughness: 0.5 }), 0, 12.3, 0, con);
-  cyl(5.5, 5.5, 0.8, mat(0x4c1d95), 0, 13.1, 0, con, 24);
-  box(10, 2, 2.4, mat(0x3b0f82), 0, 13.8, -9.2, con);
-  for (let i = 0; i < 4; i++) box(2.2, 1.6, 0.8, mat(0x1e1b4b), -5.1 + i * 3.4, 4.5, 8.9, con);
-  box(1, 1, 0.6, neonM(0xf97316), 7, 2.2, 8.9, con);
-  // mandos con cable
-  const padColors = [0x4338ca, 0xea580c];
-  const ports = [new THREE.Vector3(46 - 5.1, TABLE_Y + 4.5, 16 + 9), new THREE.Vector3(46 - 1.7, TABLE_Y + 4.5, 16 + 9)];
-  [[-38, 24, 0.35], [-10, 30, -0.2]].forEach(([x, z, ry], i) => {
-    const g = new THREE.Group(); g.position.set(x, TABLE_Y + 1.6, z); g.rotation.y = ry; dio.add(g);
-    const pm = mat(padColors[i], { roughness: 0.55 });
-    box(12, 3.2, 7, pm, 0, 0, 0, g);
-    cyl(1.9, 1.6, 7, pm, -4.6, -1.2, 3.5, g).rotation.x = 0.35; cyl(1.9, 1.6, 7, pm, 4.6, -1.2, 3.5, g).rotation.x = 0.35;
-    cyl(1.6, 1.6, 1.2, mat(0x22c55e), 3.6, 1.9, -0.6, g); cyl(0.8, 0.8, 1.2, mat(0xef4444), 2.0, 1.9, 0.9, g);
-    cyl(0.7, 0.7, 1.0, mat(0xd4d4d8), 4.6, 1.9, -2.4, g); cyl(0.7, 0.7, 1.0, mat(0xd4d4d8), 5.6, 1.9, -0.4, g);
-    cyl(1.2, 1.5, 1.6, mat(0x9ca3af), -3.6, 2.2, -1.2, g, 10); cyl(0.9, 1.1, 1.2, mat(0xfbbf24), -1.2, 2.0, 1.6, g, 10);
-    const start = new THREE.Vector3(x, TABLE_Y + 1.6, z - 3.5), end = ports[i];
-    const curve = new THREE.CatmullRomCurve3([start, new THREE.Vector3(x + 6, TABLE_Y + 0.8, z - 12), new THREE.Vector3((x + end.x) / 2, TABLE_Y + 0.6, z + 6), new THREE.Vector3(end.x - 2, TABLE_Y + 1.5, end.z + 6), end]);
-    const cable = new THREE.Mesh(new THREE.TubeGeometry(curve, mobile ? 24 : 48, 0.45, 6, false), mat(0x2a2438, { roughness: 0.6 })); cable.castShadow = !mobile; dio.add(cable);
+  // GameCube (proporciones reales 15×11×16 cm, sin logos)
+  const con = new THREE.Group(); con.position.set(44, TABLE_Y, 14); dio.add(con);
+  const indigo = mat(0x4f4198, { roughness: 0.55 }), indigoHi = mat(0x5d4fae, { roughness: 0.5 }), indigoDk = mat(0x3a2f78, { roughness: 0.6 }), greyBtn = mat(0x9ca3af, { roughness: 0.5 });
+  box(15, 10.4, 15.5, indigo, 0, 0.6 + 5.2, 0, con);                       // cuerpo
+  box(12.6, 0.7, 12.6, indigoHi, 0, 11.15, 0.3, con);                       // tapa
+  cyl(4.9, 4.9, 0.5, indigoDk, 0, 11.7, 0.3, con, 28);                      // cubierta del disco
+  cyl(3.6, 3.6, 0.25, indigoHi, 0, 12.0, 0.3, con, 28);
+  box(1.8, 0.5, 1.1, greyBtn, 4.6, 11.6, 5.4, con);                          // Open
+  box(2.6, 0.6, 1.3, greyBtn, -5.0, 11.4, 6.0, con);                         // Power
+  box(1.0, 0.6, 1.0, greyBtn, -2.4, 11.4, 6.1, con);                         // Reset
+  box(11.5, 3.8, 0.5, indigoHi, 0, 7.4, 7.9, con);                           // panel de puertos
+  const portXs = [-4.2, -1.4, 1.4, 4.2];
+  portXs.forEach((x) => { cyl(0.95, 0.95, 0.7, mat(0x1e1b4b), x, 7.4, 8.2, con, 12).rotation.x = Math.PI / 2; });
+  box(2.6, 1.2, 0.4, mat(0x1e1b4b), -2.2, 3.9, 7.95, con); box(2.6, 1.2, 0.4, mat(0x1e1b4b), 2.2, 3.9, 7.95, con);   // ranuras memory card
+  box(1.0, 0.5, 0.3, neonM(0xf97316), -6.2, 9.6, 7.9, con);                  // LED
+  box(9.5, 1.3, 1.3, indigoDk, 0, 10.4, -9.0, con);                          // asa trasera
+  box(1.3, 1.3, 2.4, indigoDk, -4.1, 10.4, -8.2, con); box(1.3, 1.3, 2.4, indigoDk, 4.1, 10.4, -8.2, con);
+  [[-6, -6], [6, -6], [-6, 6], [6, 6]].forEach(([x, z]) => cyl(0.9, 0.9, 0.6, mat(0x2a2438), x, 0.3, z, con, 8));   // patas
+  for (let i = 0; i < 5; i++) box(0.3, 4, 8, indigoDk, 7.6, 5.5, -3 + i * 1.5, con).castShadow = false;             // rejilla lateral
+  // mandos de GameCube con cable a los puertos 1 y 2
+  const padColors = [0x4f4198, 0xea580c];
+  const ports = portXs.slice(0, 2).map((x) => new THREE.Vector3(44 + x, TABLE_Y + 7.4, 14 + 8.3));
+  [[-40, 22, 0.38], [-8, 31, -0.22]].forEach(([x, z, ry], i) => {
+    const g = new THREE.Group(); g.position.set(x, TABLE_Y + 2.2, z); g.rotation.y = ry; dio.add(g);
+    const pm = mat(padColors[i], { roughness: 0.55 }), pmDk = mat(i ? 0xc2410c : 0x3a2f78, { roughness: 0.6 });
+    box(7.6, 3.0, 6.4, pm, 0, 0, -0.2, g);                                                                    // cuerpo central
+    cyl(2.3, 2.3, 3.0, pm, -4.2, 0, -0.4, g, 14); cyl(2.3, 2.3, 3.0, pm, 4.2, 0, -0.4, g, 14);                 // lóbulos
+    const grip = (sx) => { const c = cyl(1.5, 1.25, 7.5, pm, sx * 3.9, -1.6, 2.6, g, 12); c.rotation.set(1.15, 0, -sx * 0.32); };
+    grip(-1); grip(1);
+    cyl(1.25, 1.25, 0.5, mat(0x22c55e), 3.2, 1.7, -0.8, g, 16);                                              // A
+    cyl(0.65, 0.65, 0.5, mat(0xef4444), 1.7, 1.7, 0.6, g, 10);                                               // B
+    box(0.6, 0.5, 1.8, greyBtn, 5.0, 1.7, -0.8, g); box(1.8, 0.5, 0.6, greyBtn, 3.2, 1.7, -2.5, g);           // X / Y
+    cyl(0.8, 0.8, 0.9, mat(0xfbbf24), 3.6, 1.95, 1.9, g, 10);                                                // C-stick
+    cyl(0.45, 0.45, 0.4, greyBtn, 0, 1.7, -0.3, g, 8);                                                       // Start
+    cyl(1.6, 1.6, 0.3, mat(0x2a2438), -3.4, 1.6, -1.0, g, 8); cyl(0.95, 0.95, 1.3, greyBtn, -3.4, 2.2, -1.0, g, 10);   // stick
+    box(2.0, 0.5, 0.7, greyBtn, -2.6, 1.7, 1.6, g); box(0.7, 0.5, 2.0, greyBtn, -2.6, 1.7, 1.6, g);           // cruceta
+    box(2.4, 1.2, 1.6, greyBtn, -4.2, 0.9, -3.2, g); box(2.4, 1.2, 1.6, greyBtn, 4.2, 0.9, -3.2, g);          // L / R
+    box(1.6, 0.6, 1.0, mat(0x6d28d9), 4.2, 1.7, -3.0, g);                                                    // Z
+    const start = g.localToWorld(new THREE.Vector3(0, 0.6, -3.5)), end = ports[i];
+    const curve = new THREE.CatmullRomCurve3([start, new THREE.Vector3(start.x + 4, TABLE_Y + 0.7, start.z - 10), new THREE.Vector3((start.x + end.x) / 2, TABLE_Y + 0.5, 4), new THREE.Vector3(end.x - 3, TABLE_Y + 1.2, end.z + 7), end]);
+    const cable = new THREE.Mesh(new THREE.TubeGeometry(curve, mobile ? 24 : 48, 0.42, 6, false), mat(0x2a2438, { roughness: 0.6 })); cable.castShadow = !mobile; dio.add(cable);
+    pmDk.dispose();
   });
+  // cable de corriente de la consola hacia la pared
+  { const c = new THREE.CatmullRomCurve3([new THREE.Vector3(44, TABLE_Y + 3, 6), new THREE.Vector3(60, TABLE_Y + 0.6, -14), new THREE.Vector3(74, TABLE_Y - 20, -50), new THREE.Vector3(80, 2, -66)]);
+    dio.add(new THREE.Mesh(new THREE.TubeGeometry(c, 32, 0.5, 6, false), mat(0x1c1a2a, { roughness: 0.7 }))); }
   // trofeo dorado
   const gold = mat(0xfbbf24, { metalness: 0.7, roughness: 0.3 });
   cyl(3.2, 2.2, 1.6, mat(0x78350f), 68, TABLE_Y + 0.8, -12); cyl(0.7, 0.7, 4, gold, 68, TABLE_Y + 3.6, -12); cyl(3.4, 1.6, 5.5, gold, 68, TABLE_Y + 8, -12);
@@ -256,12 +309,18 @@ function main() {
     }));
     dust.frustumCulled = false; dio.add(dust);
   }
-  // miniaturas reales del canal como textura de la CRT
-  const thumbs = []; let thumbI = 0, thumbT = 0;
-  if (CLIPS.length) {
-    const tl = new THREE.TextureLoader(); tl.setCrossOrigin('anonymous');
-    CLIPS.forEach((id, i) => tl.load(`https://i.ytimg.com/vi/${id}/hqdefault.jpg`, (t) => { t.colorSpace = THREE.SRGBColorSpace; t.minFilter = THREE.LinearFilter; t.generateMipmaps = false; thumbs[i] = t; if (!S.feed && screenU.tTex.value === noiseTex) screenU.tTex.value = t; start(); }, undefined, () => {}));
-  }
+  // clip real del canal en loop (VideoTexture); póster = frame fijo del vídeo (reduced-motion / antes de cargar)
+  const video = document.createElement('video');
+  video.muted = true; video.loop = true; video.playsInline = true; video.preload = 'metadata'; video.setAttribute('muted', ''); video.setAttribute('playsinline', '');
+  video.src = 'media/crt-loop.mp4';
+  const videoTex = new THREE.VideoTexture(video); videoTex.colorSpace = THREE.SRGBColorSpace; videoTex.minFilter = THREE.LinearFilter; videoTex.generateMipmaps = false;
+  let videoOK = false, posterTex = null;
+  video.addEventListener('loadeddata', () => { videoOK = true; start(); });
+  video.addEventListener('playing', () => { videoOK = true; start(); });
+  video.addEventListener('error', () => { videoOK = false; });
+  if (!reduced) video.load();
+  new THREE.TextureLoader().load('media/crt-loop.jpg', (t) => { t.colorSpace = THREE.SRGBColorSpace; t.minFilter = THREE.LinearFilter; t.generateMipmaps = false; posterTex = t; start(); }, undefined, () => {});
+  function videoWant(on) { if (reduced || video.error) return; if (on && video.paused) video.play().catch(() => {}); else if (!on && !video.paused) video.pause(); }
 
   /* =================== ESCENA 2: DENTRO DE LA CRT (Falcon) =================== */
   const stage = new THREE.Scene();
@@ -336,6 +395,7 @@ function main() {
       else if (ST.mat === 'toon2') { m = new THREE.MeshToonMaterial({ map, color: map ? 0xffffff : src.color, gradientMap: toonGrad2 }); if (map) { map.magFilter = THREE.NearestFilter; map.minFilter = THREE.NearestFilter; map.generateMipmaps = false; } }
       else if (ST.mat === 'lambert') m = new THREE.MeshLambertMaterial({ map, color: map ? 0xffffff : src.color });
       else m = new THREE.MeshStandardMaterial({ map, color: map ? 0xffffff : src.color, roughness: 0.82, metalness: 0.0 });
+      m.side = THREE.FrontSide; m.transparent = false; m.depthWrite = true; if (map) m.alphaTest = 0.5;
       m.onBeforeCompile = matReveal; o.material = m;
       const depth = new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADepthPacking }); depth.onBeforeCompile = matReveal; o.customDepthMaterial = depth;
       if (ST.hull && o.isSkinnedMesh) {
@@ -357,7 +417,7 @@ function main() {
     actIdle.weight = 0; actPunch.weight = 1; actPunch.play(); actPunch.time = HOLD_T; mixer.update(0); model.updateMatrixWorld(true);
     const tmp = new THREE.Vector3(), hp = new THREE.Vector3(); let best = -1e9; hipBone.getWorldPosition(hp);
     model.traverse((o) => { if (o.isBone && !/^joint0[0-4]$/.test(o.name)) { o.getWorldPosition(tmp); if (tmp.y < hp.y * 0.5) return; const d = Math.hypot(tmp.x - hp.x, tmp.z - hp.z); if (d > best) { best = d; handBone = o; } } });
-    handBone.getWorldPosition(tmp); tmp.sub(hp); yawBase = Math.atan2(-tmp.x, tmp.z) + (mobile ? 0.15 : 0.42);
+    handBone.getWorldPosition(tmp); tmp.sub(hp); yawBase = Math.atan2(-tmp.x, tmp.z) + (mobile ? 0.12 : 0.28);
     actPunch.stop(); actIdle.weight = 1; actIdle.play(); mixer.update(0); model.updateMatrixWorld(true);
     rig.rotation.y = yawBase; rig.updateMatrixWorld(true); hipBone.getWorldPosition(hipPos0); follow.set(0, 0, 0);
     S.loaded = true;
@@ -453,7 +513,9 @@ function main() {
     if (S.shake > 0.001) { tmpV.set(Math.sin(t * 61.0), Math.cos(t * 53.0), Math.sin(t * 47.0)).multiplyScalar(S.shake * 1.4); cam.position.add(tmpV); }
     cam.up.set(0, 1, 0); cam.lookAt(tgt); cam.rotateZ(roll);
   }
+  const LOOK = (new URLSearchParams(location.search).get('look') || '').split(',').map(Number);   // ?look=x,y,z,tx,ty,tz solo para QA (close-ups)
   function dioCamera(t) {
+    if (LOOK.length === 6 && LOOK.every((n) => !isNaN(n))) { dioCam.position.set(LOOK[0], LOOK[1], LOOK[2]); dioCam.up.set(0, 1, 0); dioCam.lookAt(LOOK[3], LOOK[4], LOOK[5]); dioCam.setViewOffset(W, H, 0, 0, W, H); dioCam.updateProjectionMatrix(); return; }
     const q = sm(clamp01(S.p / P_IN));                       // 0 plano general → 1 pantalla llena
     const q2 = clamp01((S.p - 0.3) / (P_IN - 0.3)); const dive = q2 * q2 * q2;
     screen.getWorldPosition(SCREEN_CENTER);
@@ -463,13 +525,13 @@ function main() {
     const az = lerp(mobile ? -18 : -30, 0, q) * rad + ptr.x * 0.08 * (1 - q);
     const el = lerp(10, 0, q) * rad - ptr.y * 0.05 * (1 - q);
     const roll = lerp(-6, 0, q) * rad;
-    target.set(lerp(12, SCREEN_CENTER.x, q), lerp(TABLE_Y + 22, SCREEN_CENTER.y, q), lerp(0, SCREEN_CENTER.z, q));
+    target.set(lerp(12, SCREEN_CENTER.x, q), lerp(TABLE_Y + (mobile ? 30 : 22), SCREEN_CENTER.y, q), lerp(0, SCREEN_CENTER.z, q));
     orbit(dioCam, target, dist, az, el, roll, t);
-    const ox = mobile ? 0 : -W * 0.2 * (1 - dive), oy = mobile ? H * 0.12 * (1 - dive) : -H * 0.02 * (1 - dive);
+    const ox = mobile ? 0 : -W * 0.2 * (1 - dive), oy = mobile ? H * 0.2 * (1 - dive) : -H * 0.02 * (1 - dive);
     dioCam.setViewOffset(W, H, ox, oy, W, H); dioCam.updateProjectionMatrix();
   }
   function stageParams(q) {
-    const az = lerp(-26, 22, q) * rad + ptr.x * 0.08, el = lerp(10, -4, q) * rad - ptr.y * 0.05;
+    const az = lerp(-14, 14, q) * rad + ptr.x * 0.08, el = lerp(10, -4, q) * rad - ptr.y * 0.05;
     const dist = mobile ? lerp(96, 70, q) : lerp(90, 62, q), roll = lerp(0, -12, q) * rad;
     if (mobile) target.set(lerp(0, 2, q), lerp(29, 36, q), lerp(0, 3, q)); else target.set(lerp(1, 4, q), lerp(29, 36, q), lerp(1, 4, q));
     target.add(follow);
@@ -478,7 +540,7 @@ function main() {
   function stageCamera(t) {
     const q = sm(clamp01((S.p - P_IN) / (1 - P_IN)));
     const o = stageParams(q); orbit(stageCam, target, o.dist, o.az, o.el, o.roll, t);
-    const ox = mobile ? 0 : -W * 0.2, oy = mobile ? H * 0.14 : -H * 0.02;
+    const ox = mobile ? 0 : -W * 0.13, oy = mobile ? H * 0.14 : -H * 0.02;
     stageCam.setViewOffset(W, H, ox, oy, W, H); stageCam.updateProjectionMatrix();
   }
   function feedCamera(t) { const o = stageParams(0); o.dist *= 1.15; orbit(feedCam, target, o.dist, o.az, o.el, 0, 0); }
@@ -509,11 +571,10 @@ function main() {
     S.inside = S.loaded && !S.failed && S.p >= P_IN;
     S.feed = S.loaded && !S.failed && S.p >= P_FEED && !S.inside;
     U.uScan.value = S.inside ? 1 : 0;
-    // miniaturas: rotan cada 3 s con un pequeño glitch
-    if (!S.feed && thumbs.length && !reduced) { thumbT += dt; if (thumbT > 3) { thumbT = 0; thumbI = (thumbI + 1) % thumbs.length; if (thumbs[thumbI]) screenU.tTex.value = thumbs[thumbI]; screenU.uGlitch.value = 1; } }
+    videoWant(S.view && !document.hidden && !S.inside);
     screenU.uGlitch.value = Math.max(0, screenU.uGlitch.value - dt * 4);
     screenU.uFeed.value = S.feed ? 1 : 0;
-    screenU.tTex.value = S.feed ? feedRT.texture : (thumbs[thumbI] || thumbs.find(Boolean) || noiseTex);
+    screenU.tTex.value = S.feed ? feedRT.texture : (videoOK && !reduced && video.readyState >= 2 ? videoTex : (posterTex || noiseTex));
     // Falcon
     rig.rotation.y = yawBase + (reduced ? 0 : Math.sin(t * 0.35) * 0.03);
     if (mixer && !reduced) {
@@ -564,7 +625,7 @@ function main() {
   if (fine) hero.addEventListener('pointermove', (e) => { ptr.tx = e.clientX / innerWidth - 0.5; ptr.ty = e.clientY / innerHeight - 0.5; });
 
   /* ---------- Primer frame → activar modo 3D ---------- */
-  window.__falcon = { S, rig, dioCam, stageCam, fireGroup, hand: () => handBone, actPunch: () => actPunch, STYLE };
+  window.__falcon = { S, rig, dioCam, stageCam, fireGroup, video, hand: () => handBone, actPunch: () => actPunch, STYLE };
   update(0, 0); render();
   if (renderer.getContext().getError() !== 0) throw new Error('gl error');
   hero.classList.add('has-3d'); document.documentElement.classList.add('has-3d');
