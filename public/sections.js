@@ -287,7 +287,7 @@
         <span class="lg-tv__body">
           <span class="lg-tv__screen">
             ${c.video
-              ? `<video muted playsinline loop preload="none" poster="${esc(c.poster || "")}" width="384" height="288" aria-hidden="true"><source src="${esc(c.video)}" type="video/mp4" /></video>`
+              ? `<video muted playsinline loop preload="none" poster="${esc(c.poster || "")}" width="576" height="432" aria-hidden="true"><source src="${esc(c.video)}" type="video/mp4" /></video>`
               : `<img src="https://i.ytimg.com/vi/${esc(c.id)}/${c.tv === "big" ? "hqdefault" : "mqdefault"}.jpg" alt="" loading="lazy" width="320" height="180" />`}
             ${c.video ? `<span class="lg-vhs" aria-hidden="true"><b>PLAY ▶</b><i class="lg-vhs__tc">SP 0:00:00</i><span class="lg-vhs__track"></span></span>` : ""}
             <span class="lg-tv__scan"></span>

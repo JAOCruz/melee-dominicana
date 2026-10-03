@@ -3,7 +3,7 @@
 window.MD = {
   // Clips en las teles del lounge (id = id de YouTube). "tv": big = tele central, left/right = teles laterales.
   clips: [
-    { id: "7e_brJEn86M", tag: "Set completo · FT10", title: "NotMe (Falcon) vs Aloric (Marth)", tv: "big", video: "media/crt-loop.mp4", poster: "media/crt-loop.jpg" },
+    { id: "7e_brJEn86M", tag: "Set completo · FT10", title: "NotMe (Falcon) vs Aloric (Marth)", tv: "big", video: "media/lounge-loop.mp4", poster: "media/lounge-loop.jpg" },
     { id: "lqvQscgJ4Js", tag: "Short · Leyendas", title: "PPMD is STILL disgusting in 2026", tv: "left" },
     { id: "_bRrK4uKSvo", tag: "Short · Money match", title: "A po' Lein la tiene??", tv: "right" },
   ],
