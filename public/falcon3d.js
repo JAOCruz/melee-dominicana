@@ -154,7 +154,7 @@ function main() {
     uGlitch: { value: 0 }, uCrack: { value: 0 }, uWhite: { value: 0 }, uScan: { value: 0 }, uCenter: { value: new THREE.Vector2(0.62, 0.55) },
   };
   const ptr = { x: 0, y: 0, tx: 0, ty: 0 };
-  const lerp = (a, b, t) => a + (b - a) * t, sm = (t) => t * t * (3 - 2 * t), clamp01 = (t) => Math.min(1, Math.max(0, t)), rad = Math.PI / 180;
+  const lerp = (a, b, t) => a + (b - a) * t, sm = (t) => t * t * (3 - 2 * t), clamp01 = (t) => Math.min(1, Math.max(0, t)), rad = Math.PI / 180, fract = (x) => x - Math.floor(x);
 
   /* =================== ESCENA 1: DIORAMA =================== */
   const dio = new THREE.Scene();
@@ -223,28 +223,52 @@ function main() {
   const scrGeo = new THREE.PlaneGeometry(SCREEN_W, SCREEN_H, 10, 8);
   { const p = scrGeo.attributes.position; for (let i = 0; i < p.count; i++) { const x = p.getX(i) / (SCREEN_W / 2), y = p.getY(i) / (SCREEN_H / 2); p.setZ(i, (1 - (x * x + y * y) * 0.5) * 2.2); } scrGeo.computeVertexNormals(); }
   const noiseTex = noiseTexture();
-  const screenU = { tTex: { value: noiseTex }, uTime: U.uTime, uGlitch: { value: 0 }, uBright: { value: 1.0 }, uFeed: { value: 0 } };
+  // OSD estilo VCR (canvas con la fuente pixel): "PLAY ▶" arriba-izquierda, "SP 0:00:xx" abajo-derecha
+  const osdC = document.createElement('canvas'); osdC.width = 512; osdC.height = 384; const osdG = osdC.getContext('2d');
+  const osdTex = new THREE.CanvasTexture(osdC); osdTex.magFilter = THREE.NearestFilter; osdTex.minFilter = THREE.LinearFilter; osdTex.generateMipmaps = false; osdTex.colorSpace = THREE.SRGBColorSpace;
+  let osdSec = -1;
+  function drawOSD(sec) {
+    osdG.clearRect(0, 0, 512, 384); osdG.font = '20px "Press Start 2P", monospace'; osdG.textBaseline = 'top';
+    const txt = (t, x, y, right) => { osdG.textAlign = right ? 'right' : 'left'; osdG.fillStyle = 'rgba(0,0,0,.55)'; osdG.fillText(t, x + 2, y + 2); osdG.fillStyle = '#f4f4f8'; osdG.fillText(t, x, y); };
+    txt('PLAY', 34, 30); osdG.fillStyle = 'rgba(0,0,0,.55)'; osdG.beginPath(); osdG.moveTo(142, 32); osdG.lineTo(162, 42); osdG.lineTo(142, 52); osdG.fill();
+    osdG.fillStyle = '#f4f4f8'; osdG.beginPath(); osdG.moveTo(140, 30); osdG.lineTo(160, 40); osdG.lineTo(140, 50); osdG.fill();
+    const mm = String(Math.floor(sec / 60)).padStart(2, '0'), ss = String(sec % 60).padStart(2, '0');
+    txt(`SP 0:${mm}:${ss}`, 478, 328, true);
+    osdTex.needsUpdate = true;
+  }
+  drawOSD(0);
+  if (document.fonts && document.fonts.load) document.fonts.load('20px "Press Start 2P"').then(() => { osdSec = -1; }).catch(() => {});
+  const screenU = { tTex: { value: noiseTex }, tOsd: { value: osdTex }, uTime: U.uTime, uGlitch: { value: 0 }, uBright: { value: 1.0 }, uFeed: { value: 0 }, uTrack: { value: 0 } };
   const screenMat = new THREE.ShaderMaterial({
     uniforms: screenU,
     vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
-    fragmentShader: `varying vec2 vUv; uniform sampler2D tTex; uniform float uTime, uGlitch, uBright, uFeed;
+    fragmentShader: `varying vec2 vUv; uniform sampler2D tTex, tOsd; uniform float uTime, uGlitch, uBright, uFeed, uTrack;
       float h(vec2 p){ return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
       void main(){
         vec2 c = vUv * 2.0 - 1.0; c *= 1.0 + 0.06 * dot(c, c); vec2 uv = c * 0.5 + 0.5;
         if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) { gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0); return; }
         float row = floor(uv.y * 48.0);
         uv.x += (h(vec2(row, floor(uTime * 24.0))) - 0.5) * 0.25 * uGlitch;
-        vec3 col = texture2D(tTex, uv).rgb;
-        col = mix(pow(col, vec3(2.2)), col * 1.25, uFeed);   // miniaturas (sRGB) vs señal en vivo (lineal)
+        // banda de tracking VCR que baja de vez en cuando
+        float band = smoothstep(0.0, 0.025, uTrack - abs(uv.y - (1.3 - fract(uTime * 0.11) * 1.6)));
+        uv.x += band * (h(vec2(floor(uv.y * 240.0), floor(uTime * 30.0))) - 0.5) * 0.06;
+        // leve aberración cromática
+        vec2 ca = vec2(0.0012 + band * 0.004, 0.0);
+        vec3 col = vec3(texture2D(tTex, uv + ca).r, texture2D(tTex, uv).g, texture2D(tTex, uv - ca).b);
+        col = mix(pow(col, vec3(2.2)), col * 1.25, uFeed);   // vídeo/póster (sRGB) vs señal en vivo (lineal)
+        col = mix(col, col * (0.6 + 0.8 * h(vec2(floor(uv.y * 240.0), floor(uTime * 20.0)))), band * 0.8);
         float n = h(uv * 300.0 + uTime * 60.0);
         col = mix(col, vec3(n * 0.9), uGlitch * 0.7);
-        col *= 0.82 + 0.18 * sin(uv.y * 160.0 + uTime * 6.0);
-        col *= 1.0 - 0.45 * dot(c, c);
-        col *= uBright * 1.35;
+        col *= 0.9 + 0.1 * sin(uv.y * 480.0 * 3.14159);         // scanlines finas (480 líneas)
+        col *= 1.0 - 0.35 * dot(c, c);                          // viñeta
+        vec4 osd = texture2D(tOsd, uv); col = mix(col, pow(osd.rgb, vec3(2.2)), osd.a * 0.92);
+        col *= uBright * 1.3;
         gl_FragColor = vec4(col, 1.0);
       }`,
   });
-  const screen = new THREE.Mesh(scrGeo, screenMat); screen.position.set(0, 25, 23.6); crt.add(screen);
+  // capa 1: se dibuja a resolución nativa encima del pase pixel; en el pase de baja resolución queda un placeholder negro
+  const screen = new THREE.Mesh(scrGeo, screenMat); screen.position.set(0, 25, 23.6); screen.layers.set(1); crt.add(screen);
+  const screenLow = new THREE.Mesh(scrGeo, new THREE.MeshBasicMaterial({ color: 0x000000 })); screenLow.position.set(0, 25, 23.5); crt.add(screenLow);
   const SCREEN_CENTER = new THREE.Vector3(); // se calcula en el loop (world)
   // GameCube (proporciones reales 15×11×16 cm, sin logos)
   const con = new THREE.Group(); con.position.set(44, TABLE_Y, 14); dio.add(con);
@@ -313,13 +337,13 @@ function main() {
   const video = document.createElement('video');
   video.muted = true; video.loop = true; video.playsInline = true; video.preload = 'metadata'; video.setAttribute('muted', ''); video.setAttribute('playsinline', '');
   video.src = 'media/crt-loop.mp4';
-  const videoTex = new THREE.VideoTexture(video); videoTex.colorSpace = THREE.SRGBColorSpace; videoTex.minFilter = THREE.LinearFilter; videoTex.generateMipmaps = false;
+  const videoTex = new THREE.VideoTexture(video); videoTex.colorSpace = THREE.SRGBColorSpace; videoTex.minFilter = videoTex.magFilter = THREE.LinearFilter; videoTex.generateMipmaps = false; videoTex.anisotropy = renderer.capabilities.getMaxAnisotropy();
   let videoOK = false, posterTex = null;
   video.addEventListener('loadeddata', () => { videoOK = true; start(); });
   video.addEventListener('playing', () => { videoOK = true; start(); });
   video.addEventListener('error', () => { videoOK = false; });
   if (!reduced) video.load();
-  new THREE.TextureLoader().load('media/crt-loop.jpg', (t) => { t.colorSpace = THREE.SRGBColorSpace; t.minFilter = THREE.LinearFilter; t.generateMipmaps = false; posterTex = t; start(); }, undefined, () => {});
+  new THREE.TextureLoader().load('media/crt-loop.jpg', (t) => { t.colorSpace = THREE.SRGBColorSpace; t.minFilter = THREE.LinearFilter; t.generateMipmaps = false; t.anisotropy = renderer.capabilities.getMaxAnisotropy(); posterTex = t; start(); }, undefined, () => {});
   function videoWant(on) { if (reduced || video.error) return; if (on && video.paused) video.play().catch(() => {}); else if (!on && !video.paused) video.pause(); }
 
   /* =================== ESCENA 2: DENTRO DE LA CRT (Falcon) =================== */
@@ -460,7 +484,7 @@ function main() {
   let PIX = mobile ? ST.pixMobile : ST.pix;
   const rt = new THREE.WebGLRenderTarget(4, 4, { minFilter: THREE.NearestFilter, magFilter: THREE.NearestFilter, type: THREE.HalfFloatType, depthTexture: new THREE.DepthTexture(4, 4) });
   rt.depthTexture.minFilter = rt.depthTexture.magFilter = THREE.NearestFilter;
-  const feedRT = new THREE.WebGLRenderTarget(mobile ? 192 : 256, mobile ? 144 : 192, { minFilter: THREE.LinearFilter, magFilter: THREE.NearestFilter, type: THREE.HalfFloatType });
+  const feedRT = new THREE.WebGLRenderTarget(mobile ? 320 : 512, mobile ? 240 : 384, { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, type: THREE.HalfFloatType });
   const quadScene = new THREE.Scene(), quadCam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
   const pixMat = new THREE.ShaderMaterial({
     uniforms: { tDiffuse: { value: rt.texture }, tDepth: { value: rt.depthTexture }, uRes: U.uRes, uNear: { value: 1 }, uFar: { value: 900 }, uTime: U.uTime,
@@ -573,6 +597,8 @@ function main() {
     U.uScan.value = S.inside ? 1 : 0;
     videoWant(S.view && !document.hidden && !S.inside);
     screenU.uGlitch.value = Math.max(0, screenU.uGlitch.value - dt * 4);
+    screenU.uTrack.value = reduced ? 0 : (fract(t / 9) < 0.22 ? 0.05 : 0);          // tracking ~2 s cada 9 s
+    { const sec = videoOK && !reduced ? Math.floor(video.currentTime) : 0; if (sec !== osdSec) { osdSec = sec; drawOSD(sec); } }
     screenU.uFeed.value = S.feed ? 1 : 0;
     screenU.tTex.value = S.feed ? feedRT.texture : (videoOK && !reduced && video.readyState >= 2 ? videoTex : (posterTex || noiseTex));
     // Falcon
@@ -607,6 +633,11 @@ function main() {
     pixMat.uniforms.uNear.value = cam.near; pixMat.uniforms.uFar.value = cam.far;
     renderer.setRenderTarget(rt); renderer.render(S.inside ? stage : dio, cam);
     renderer.setRenderTarget(null); renderer.render(quadScene, quadCam);
+    if (!S.inside) {   // pantalla de la CRT a resolución nativa (capa 1) encima del pase pixel
+      const bg = dio.background; dio.background = null;   // un background Color fuerza clear aunque autoClear sea false
+      renderer.autoClear = false; renderer.clearDepth(); dioCam.layers.set(1); renderer.render(dio, dioCam); dioCam.layers.set(0); renderer.autoClear = true;
+      dio.background = bg;
+    }
   }
   const frame = () => {
     raf = 0;
