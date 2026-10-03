@@ -98,9 +98,58 @@ a { color: inherit; }
   position: relative;
 }
 .hero::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1;
   background: repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 1px, transparent 1px 3px);
 }
+.hero-copy { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.falcon3d { position: absolute; inset: 0; z-index: 0; display: none; overflow: hidden; }
+.falcon3d canvas { display: block; width: 100%; height: 100%; }
+.falcon3d__flash {
+  position: absolute; inset: 0; opacity: 0; pointer-events: none; mix-blend-mode: screen;
+  background: radial-gradient(circle at 68% 45%, rgba(255, 220, 130, .95), rgba(255, 96, 32, .55) 28%, transparent 68%);
+}
+.hero-hint { display: none; }
+
+/* Hero con Falcon 3D activo (.has-3d solo tras el primer frame WebGL) */
+html.has-lenis { scroll-behavior: auto; }
+.hero.has-3d {
+  height: calc(100svh - var(--navh, 52px));
+  min-height: 600px;
+  overflow: hidden;
+  padding: 0 clamp(16px, 6vw, 96px);
+  align-items: flex-start;
+  justify-content: center;
+}
+.hero.has-3d .falcon3d { display: block; }
+.hero.has-3d::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(90deg, rgba(7, 8, 15, .9) 0, rgba(7, 8, 15, .62) 34%, rgba(7, 8, 15, 0) 60%);
+}
+.hero.has-3d .hero-copy { align-items: flex-start; text-align: left; max-width: 640px; }
+.hero.has-3d .flag { width: 132px; margin-bottom: 26px; }
+.hero.has-3d .t1 { font-size: clamp(40px, 7.2vw, 96px); text-shadow: 6px 6px 0 var(--blue), 12px 12px 0 rgba(0,0,0,.6), 0 2px 30px rgba(7,8,15,.9); }
+.hero.has-3d .t2 { font-size: clamp(20px, 3.6vw, 48px); }
+.hero.has-3d .lede { margin-left: 0; font-size: 18px; color: #b5b9cc; text-shadow: 0 2px 20px rgba(7,8,15,.95); }
+.hero.has-3d .cta { justify-content: flex-start; }
+.hero.has-3d .hero-hint {
+  display: block; position: absolute; right: clamp(16px, 6vw, 96px); bottom: 22px; z-index: 2; margin: 0;
+  font-family: var(--pixel); font-size: 9px; letter-spacing: .2em; color: var(--muted);
+  animation: hint 1.6s steps(2) infinite;
+}
+@keyframes hint { 50% { transform: translateY(4px); opacity: .5; } }
+@media (max-width: 820px) {
+  .hero.has-3d { min-height: 0; padding: 0 16px 40px; align-items: center; justify-content: flex-end; }
+  .hero.has-3d::before { background: linear-gradient(0deg, rgba(7, 8, 15, .96) 0, rgba(7, 8, 15, .78) 34%, rgba(7, 8, 15, 0) 62%); }
+  .hero.has-3d .hero-copy { align-items: center; text-align: center; max-width: 480px; }
+  .hero.has-3d .flag { width: 84px; margin-bottom: 14px; }
+  .hero.has-3d .kicker { font-size: 10px; margin-bottom: 14px; }
+  .hero.has-3d .t1 { font-size: clamp(36px, 11vw, 48px); }
+  .hero.has-3d .t2 { font-size: clamp(18px, 5.2vw, 24px); }
+  .hero.has-3d .lede { font-size: 15.5px; margin-top: 18px; }
+  .hero.has-3d .cta { justify-content: center; margin-top: 24px; }
+  .hero.has-3d .hero-hint { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .hero.has-3d .hero-hint { animation: none; } }
 .flag {
   width: min(240px, 60vw);
   height: auto;

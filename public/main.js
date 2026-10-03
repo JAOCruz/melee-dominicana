@@ -98,7 +98,16 @@
       }
     }
     ctx.putImageData(img, 0, 0);
-    if (!reduce) requestAnimationFrame(draw);
+    if (!reduce && flagVisible) requestAnimationFrame(draw);
+  }
+  // Solo anima mientras la bandera está en pantalla
+  let flagVisible = true;
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver((en) => {
+      const was = flagVisible;
+      flagVisible = en[0].isIntersecting;
+      if (flagVisible && !was && !reduce) requestAnimationFrame(draw);
+    }).observe(cv);
   }
   requestAnimationFrame(draw);
 })();

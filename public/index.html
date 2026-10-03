@@ -33,17 +33,21 @@
   </nav>
 
   <header id="top" class="hero">
-    <canvas id="flag" class="flag" width="48" height="36" aria-hidden="true"></canvas>
-    <p class="kicker">Super Smash Bros. Melee · República Dominicana</p>
-    <h1 class="title">
-      <span class="t1">MELEE</span>
-      <span class="t2">DOMINICANA</span>
-    </h1>
-    <p class="lede">La casa de la escena competitiva de Melee en RD. Sets completos, highlights de la semana, torneos locales y la vieja escuela contra la nueva.</p>
-    <div class="cta">
-      <a class="btn btn-gold" href="#lounge">▶ Ver clips</a>
-      <a class="btn btn-ghost" href="#hub">Empieza a jugar</a>
+    <div class="falcon3d" aria-hidden="true"></div>
+    <div class="hero-copy">
+      <canvas id="flag" class="flag" width="48" height="36" aria-hidden="true"></canvas>
+      <p class="kicker">Super Smash Bros. Melee · República Dominicana</p>
+      <h1 class="title">
+        <span class="t1">MELEE</span>
+        <span class="t2">DOMINICANA</span>
+      </h1>
+      <p class="lede">La casa de la escena competitiva de Melee en RD. Sets completos, highlights de la semana, torneos locales y la vieja escuela contra la nueva.</p>
+      <div class="cta">
+        <a class="btn btn-gold" href="#lounge">▶ Ver clips</a>
+        <a class="btn btn-ghost" href="#hub">Empieza a jugar</a>
+      </div>
     </div>
+    <p class="hero-hint" aria-hidden="true">Scroll ▼</p>
   </header>
 
   <main id="contenido">
@@ -132,5 +136,13 @@
 
   <script src="data.js"></script>
   <script src="main.js"></script>
+  <!-- Hero 3D: Captain Falcon en voxels (escultura propia). Si no hay WebGL, el hero se queda con la bandera y el título. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script type="importmap">{"imports":{
+    "three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+    "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
+  <script type="module" src="falcon3d.js"></script>
 </body>
 </html>
