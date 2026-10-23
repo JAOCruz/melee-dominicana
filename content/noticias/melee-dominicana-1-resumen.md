@@ -2,6 +2,7 @@
 title: Melee Dominicana #1: Ishigami se lleva la corona y BeLde manda en doubles
 date: 2026-10-23
 summary: Resumen del primer torneo de la nueva era: 22 jugadores en singles, un Grand Final a cinco juegos entre Ishigami y Zuraco, y BeLde campeón de doubles.
+tags: Super Smash Bros. Melee, Esports, Nintendo GameCube, Slippi, Torneo, Santo Domingo, República Dominicana, Ishigami, Zuraco, NotMe
 image: og.png
 torneo: md1
 ---

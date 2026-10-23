@@ -196,6 +196,8 @@ def article_page(meta, body):
         "headline": meta["title"], "description": meta["summary"],
         "datePublished": d, "dateModified": d, "inLanguage": "es-DO",
         "image": [abs_url(img)],
+        "keywords": [t.strip() for t in meta.get("tags", "").split(",") if t.strip()] or DEFAULT_TAGS,
+        "about": GAME,
         "mainEntityOfPage": {"@type": "WebPage", "@id": abs_url(path)},
         "author": {"@type": "Organization", "name": NAME, "url": SITE + "/"},
         "publisher": {"@type": "Organization", "name": NAME, "url": SITE + "/",
@@ -204,6 +206,11 @@ def article_page(meta, body):
     extra = f'\n  <meta property="article:published_time" content="{esc(d)}" />'
     return page(title=f"{meta['title']} | {NAME}", desc=meta["summary"], path=path, img=img,
                 og_type="article", main=main, jsonld=ld, extra_meta=extra)
+
+
+DEFAULT_TAGS = ["Super Smash Bros. Melee", "Esports", "Nintendo GameCube", "Slippi", "República Dominicana", "Torneos"]
+GAME = {"@type": "VideoGame", "name": "Super Smash Bros. Melee", "gamePlatform": "Nintendo GameCube",
+        "publisher": {"@type": "Organization", "name": "Nintendo"}}
 
 
 def index_page(items):
