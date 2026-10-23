@@ -1,0 +1,11 @@
+# Melee Dominicana
+
+> Comunidad competitiva de Super Smash Bros. Melee en República Dominicana (Santo Domingo). Organiza torneos presenciales, publica resultados y rankings, y comparte clips, sets y highlights de jugadores dominicanos. Se juega en línea con Slippi (Dolphin) y en setup con GameCube y CRT.
+
+## Páginas
+- [Inicio](https://melee-rd.netlify.app/): torneos, jugadores, clips y cómo empezar a jugar con Slippi
+- [Noticias](https://melee-rd.netlify.app/noticias/): resúmenes de torneos, resultados y novedades de la escena
+- [Torneos en start.gg](https://www.start.gg/tournament/melee-dominicana)
+
+## Canales
+- YouTube: https://www.youtube.com/channel/UC3pTL3ikdL8_8REeSHtinSQ
